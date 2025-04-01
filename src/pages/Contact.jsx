@@ -1,44 +1,153 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { scrollToElement } from "../functions/scrollUp";
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(null);
+
+  const botToken = "YOUR_BOT_TOKEN"; // Telegram bot tokeningizni qo'ying
+  const chatId = "YOUR_CHAT_ID"; // Telegram chat ID-ni qo'ying
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.email || !formData.message) {
+      alert("Iltimos, barcha maydonlarni to'ldiring!");
+      return;
+    }
+
+    setLoading(true);
+
+    const text = `📩 *Portfolio'dan yangi xabar*%0A👤 *Ism:* ${formData.name}%0A📧 *Email:* ${formData.email}%0A💬 *Xabar:* ${formData.message}`;
+
+    try {
+      await axios.get(`https://api.telegram.org/bot${botToken}/sendMessage`, {
+        params: {
+          chat_id: chatId,
+          text: text,
+          parse_mode: "Markdown",
+        },
+      });
+
+      setSuccess("✅ Xabar muvaffaqiyatli yuborildi!");
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Xabar jo'natishda xatolik:", error);
+      setSuccess("❌ Xabar jo'natilmadi. Qaytadan urinib ko'ring.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
-    <div className="container my-20">
-      <h1 className="text-4xl montbold mb-10">Contact</h1>
-      <form action="" method="POST" className="w-1/2 grid grid-cols-2 gap-4">
-        <input
-          required
-          className="bg-white/50 montmed rounded-lg px-5 py-3"
-          placeholder="Firs Name"
-          type="text"
-          name="text"
-          id="0"
-        />
-        <input
-          required
-          className="bg-white/50 montmed rounded-lg px-5 py-3"
-          placeholder="Last Name"
-          type="text"
-          name="text"
-          id="1"
-        />
-        <input
-          required
-          className="bg-white/50 montmed rounded-lg px-5 py-3 col-start-1 col-end-3"
-          placeholder="Email"
-          type="email"
-          name="email"
-          id="2"
-        />
-        <textarea
-          className="h-52 bg-white/50 montmed rounded-lg p-5 resize-none col-start-1 col-end-3"
-          placeholder="Enter Your Request ..."
-          name="xabar nima haqida"
-          id="3"
-        ></textarea>
-        <button className="montbold text-lg px-5 py-3 rounded-lg bg-black text-white">
-          Submit
-        </button>
-      </form>
+    <div className="container flex gap-20 my-10">
+      <div className="w-1/2">
+        <h1 className="text-4xl font-bold mb-8 ">Let’s Connect!</h1>
+        <p className="mb-8 text-lg ">
+          We’d love to hear from you—whether you have a question, need support,
+          or just want to say hello.
+        </p>
+        {/* Left Column: Contact Info */}
+        <div className="space-y-6">
+          {/* Call Us Section */}
+          <div>
+            <h2 className="text-2xl font-semibold mb-2">Call Us:</h2>
+            <p className="mb-1">
+              Give us a ring at{" "}
+              <span className="font-bold">(88) 234-17-37</span> during our
+              business hours: Monday to Friday, 9 AM–5 PM.
+            </p>
+            <p className="text-sm italic">
+              (Click the number to call directly from your mobile device.)
+            </p>
+          </div>
+
+          {/* Email Us Section */}
+          <div>
+            <h2 className="text-2xl font-semibold mb-2">Email Us:</h2>
+            <p>
+              Drop us a line at{" "}
+              <a
+                href="mailto:boburovshukurullo@gmail.com"
+                className="text-blue-500 underline"
+              >
+                boburovshukurullo@gmail.com
+              </a>
+              . We check our inbox daily and promise a quick reply!
+            </p>
+          </div>
+
+          {/* FAQ CTA */}
+          <div>
+            <p className="text-sm italic">
+              P.S. For frequently asked questions, please check our{" "}
+              <span
+                onClick={() => {
+                  scrollToElement(80);
+                }}
+                className="cursor-pointer text-blue-500 underline"
+              >
+                About Me Page
+              </span>{" "}
+              first—it might have the answer you’re looking for!
+            </p>
+          </div>
+        </div>
+
+        {/* Right Column: Contact Form */}
+      </div>
+      <div className="bg-white shadow-lg rounded-md p-8 my-20">
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <input
+            type="text"
+            name="name"
+            placeholder="Ismingiz"
+            value={formData.name}
+            onChange={handleChange}
+            className="w-full p-4 bg-gray-200 text-gray-900 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gray-600 outline-none"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Emailingiz"
+            value={formData.email}
+            onChange={handleChange}
+            className="w-full p-4 bg-gray-200 text-gray-900 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gray-600 outline-none"
+            required
+          />
+          <textarea
+            name="message"
+            placeholder="Xabaringiz"
+            value={formData.message}
+            onChange={handleChange}
+            rows="5"
+            className="resize-none w-full p-4 bg-gray-200 text-gray-900 rounded-lg border border-gray-300 focus:ring-2 focus:ring-gray-600 outline-none"
+            required
+          ></textarea>
+          <button
+            type="submit"
+            className="w-full p-4 bg-[#1c1c1c] text-white font-bold rounded-lg hover:bg-gray-800 transition transform hover:scale-105 duration-300"
+            disabled={loading}
+          >
+            {loading ? "Yuborilmoqda..." : "Xabar Yuborish"}
+          </button>
+        </form>
+        {success && (
+          <p className="text-center text-green-600 mt-4">{success}</p>
+        )}
+      </div>
+      +
     </div>
   );
 };
