@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+:root {
+  --main-color: #c2c2c2b0;
+}
+
+*:focus {
+  outline: none;
+}
+
+* {
+  user-select: none;
+}
+
+body {
+  background-color: var(--main-color);
+}
+
+.container {
+  @apply w-full max-w-[1440px] px-5 mx-auto;
+}
+
+@font-face {
+  font-family: montbold;
+  src: url(./font/Montserrat-Bold.ttf);
+}
+
+@font-face {
+  font-family: montmed;
+  src: url(./font/Montserrat-Medium.ttf);
+}
+
+.montbold {
+  font-family: montbold;
+}
+
+.montmed {
+  font-family: montmed;
+}
+
+.flexing-line::after {
+  width: 0%;
+  height: 3px;
+  border-radius: 30px;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transition: all ease-in 0.2s;
+  background-color: #1c1c1c;
+}
+
+.flexing-line:hover::after {
+  width: 100%;
+}
+
+.odinfoto {
+  width: 600px;
+  height: 600px;
+  background: url(./assets/ink.png), url(./assets/photo.png);
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: difference;
+}
+
+.howereffec:hover {
+  background-color: #1c1c1c;
+}
+
+.howereffec:hover span {
+  color: white;
+}
+
+.howereffec:hover svg {
+  fill: white;
+}
+
+.vscodehover:hover svg {
+  stroke: white;
+}
+
+.vscodehover:hover {
+  background-color: #1c1c1c;
+}
+
+.vscodehover:hover span {
+  color: white;
+}
