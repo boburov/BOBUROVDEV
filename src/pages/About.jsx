@@ -9,7 +9,7 @@ const About = () => {
   Aos.init();
 
   return (
-    <div className="container flex flex-col items-start justify-center gap-10 my-20">
+    <div id='about' className="container flex flex-col items-start justify-center gap-10 my-20">
       {/* <h2 className='text-2xl montbold'>Every Project Peace Of Skill🧩</h2> */}
       <h2 className="text-4xl montbold">About Me</h2>
       <div className="w-full flex  items-center h-96 justify-between">

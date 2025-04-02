@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { scrollToElement } from "../functions/scrollUp";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,8 +10,8 @@ const Contact = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(null);
 
-  const botToken = "YOUR_BOT_TOKEN"; // Telegram bot tokeningizni qo'ying
-  const chatId = "YOUR_CHAT_ID"; // Telegram chat ID-ni qo'ying
+  const botToken = "7801510543:AAH7b0k0Nvlea0t9Lf5mp81rEtU8wfau_l4"; // Telegram bot tokeningizni qo'ying
+  const chatId = "6846125638"; // Telegram chat ID-ni qo'ying
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -28,7 +27,7 @@ const Contact = () => {
 
     setLoading(true);
 
-    const text = `📩 *Portfolio'dan yangi xabar*%0A👤 *Ism:* ${formData.name}%0A📧 *Email:* ${formData.email}%0A💬 *Xabar:* ${formData.message}`;
+    const text = `📩 Portfoliodan yangi xabar\n\n👤Ism: ${formData.name}\n\n📧Email: ${formData.email}\n\n💬 Xabar: ${formData.message}`;
 
     try {
       await axios.get(`https://api.telegram.org/bot${botToken}/sendMessage`, {
@@ -50,9 +49,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="container flex gap-20 my-10">
-      <div className="w-1/2">
-        <h1 className="text-4xl font-bold mb-8 ">Let’s Connect!</h1>
+    <div className="container grid grid-cols-2 gap-10 my-10">
+      <h1 className="text-4xl font-bold mb-8 col-start-1 col-end-3">Let’s Connect!</h1>
+      <div className="py-2">
         <p className="mb-8 text-lg ">
           We’d love to hear from you—whether you have a question, need support,
           or just want to say hello.
@@ -79,7 +78,7 @@ const Contact = () => {
               Drop us a line at{" "}
               <a
                 href="mailto:boburovshukurullo@gmail.com"
-                className="text-blue-500 underline"
+                className="text-[#00009E] underline"
               >
                 boburovshukurullo@gmail.com
               </a>
@@ -91,12 +90,7 @@ const Contact = () => {
           <div>
             <p className="text-sm italic">
               P.S. For frequently asked questions, please check our{" "}
-              <span
-                onClick={() => {
-                  scrollToElement(80);
-                }}
-                className="cursor-pointer text-blue-500 underline"
-              >
+              <span className="cursor-pointer text-[#00009E] underline">
                 About Me Page
               </span>{" "}
               first—it might have the answer you’re looking for!
@@ -106,7 +100,7 @@ const Contact = () => {
 
         {/* Right Column: Contact Form */}
       </div>
-      <div className="bg-white shadow-lg rounded-md p-8 my-20">
+      <div className="bg-white shadow-lg rounded-md p-8 ">
         <form onSubmit={handleSubmit} className="space-y-4">
           <input
             type="text"
