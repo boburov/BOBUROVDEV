@@ -49,10 +49,10 @@ const Contact = () => {
   };
 
   return (
-    <div className="container grid grid-cols-2 gap-10 my-10">
-      <h1 className="text-4xl font-bold mb-8 col-start-1 col-end-3">Let’s Connect!</h1>
+    <div className="container grid grid-cols-2 gap-10 my-10 max-md:grid-cols-1 max-md:text-xs">
+      <h1 className="text-4xl font-bold mb-8 col-start-1 col-end-3 max-md:col-end-1 max-md:mb-2">Let’s Connect!</h1>
       <div className="py-2">
-        <p className="mb-8 text-lg ">
+        <p className="mb-8 text-lg max-md:text-xs">
           We’d love to hear from you—whether you have a question, need support,
           or just want to say hello.
         </p>
@@ -141,7 +141,6 @@ const Contact = () => {
           <p className="text-center text-green-600 mt-4">{success}</p>
         )}
       </div>
-      +
     </div>
   );
 };

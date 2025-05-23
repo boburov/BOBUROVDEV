@@ -36,28 +36,28 @@ const Ability = () => {
 
   return (
     <div className="container space-y-10">
-      <h1 className="montbold text-4xl">Ability & Education</h1>
+      <h1 className="montbold text-4xl max-md:text-2xl">Ability & Education</h1>
 
-      <div className="w-full flex gap-x-20">
-        <div className="w-1/2 grid grid-cols-5 gap-x-10 gap-y-3 items-center justify-center havebg">
+      <div className="w-full flex gap-x-20 max-md:flex-col">
+        <div className="w-1/2 grid grid-cols-5 gap-x-10 gap-y-3  mb-10 items-center justify-center havebg max-md:grid-cols-3 max-md:gap-3 max-md:w-full">
           {skill_imgs.map((elem, index) => {
             return (
               <div
                 key={index}
-                className="skill-item w-28 h-36 overflow-hidden relative hover:scale-110 transition-all flex flex-col items-center"
+                className="skill-item w-28 h-36 overflow-hidden relative hover:scale-110 transition-all flex flex-col items-center max-md:w-20 max-md:h-28"
               >
                 <img
-                  className="w-28 h-28 object-contain p-2 bg-white rounded-2xl"
+                  className="w-28 h-28 object-contain p-2 bg-white rounded-2xl max-md:rounded-md"
                   src={elem.img_name}
                   alt={elem.name + " icon"}
                 />
                 {!elem.isCompleated && (
-                  <span className="montbold absolute w-full h-6 flex items-center justify-center bg-black/70 text-white z-10 top-5 -right-6 text-center border-y-2 rotate-45 text-sm">
+                  <span className="montbold absolute w-full h-6 flex items-center justify-center bg-black/70 text-white z-10 top-5 -right-6 text-center border-y-2 rotate-45 text-sm max-md:text-[9px] max-md:top-2">
                     in process
                   </span>
                 )}
                 {elem.isCompleated && (
-                  <span className="montbold absolute w-full h-6 flex items-center justify-center bg-green-700/80 text-white z-10 top-5 -right-6 text-center border-y-2 rotate-45 text-sm">
+                  <span className="montbold absolute w-full h-6 flex items-center justify-center bg-green-700/80 text-white z-10 top-5 -right-6 text-center border-y-2 rotate-45 text-sm max-md:text-[9px] max-md:top-2">
                     success
                   </span>
                 )}
@@ -67,11 +67,11 @@ const Ability = () => {
           })}
         </div>
 
-        <div className="w-1/2 flex flex-col items-start">
+        <div className="w-1/2 flex flex-col items-start max-md:w-full max-md:text-xs">
           <h2
             data-aos="fade-up"
             data-aos-duration="300"
-            className="text-3xl montbold border-b-2 mb-6"
+            className="text-3xl montbold border-b-2 mb-6 max-md:text-xl"
           >
             Education
           </h2>

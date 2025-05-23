@@ -11,18 +11,18 @@ const Home = () => {
   Aos.init();
   return (
     <>
-      <div class="container grid grid-cols-2 items-center gap-5">
-        <div className="h-7/12 flex flex-col items-start justify-between">
+      <div class="container grid grid-cols-2 items-center gap-5 max-md:grid-cols-1">
+        <div className="h-7/12 flex flex-col items-start justify-between max-md:items-center">
           <div className="flex flex-col items-start gap-7">
             <h1
-              className="montbold text-6xl"
+              className="montbold text-6xl max-md:text-center max-md:text-3xl max-md:w-full"
               data-aos="fade-right"
               data-aos-duration="1000"
             >
               Frontend React Developer
             </h1>
             <p
-              className="montmed"
+              className="montmed max-md:text-center max-md:text-xs max-md:mb-5"
               data-aos="fade-right"
               data-aos-duration="700"
             >
@@ -34,7 +34,7 @@ const Home = () => {
             </p>
           </div>
           <span
-            className="montbold cursor-pointer"
+            className="montbold cursor-pointer text-center max-md:text-lg"
             data-aos="fade-right"
             data-aos-duration="500"
           >
@@ -46,15 +46,15 @@ const Home = () => {
           data-aos="fade-left"
           data-aos-duration="1000"
           alt="Ink Texture"
-          class="w-full h-full"
+          class="w-full h-full max-md:hidden"
         />
       </div>
 
       <About />
       <hr />
-      <Projects />
-      <hr />
       <Ability />
+      <hr />
+      <Projects />
       <hr />
       <Contact />
     </>

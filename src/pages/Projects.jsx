@@ -18,20 +18,20 @@ const Projects = () => {
           Each project is a unique piece of development
         </p>
 
-        <ul className="flex flex-col items-center gap-y-24">
+        <ul className="flex flex-col items-center gap-y-24 max-md:gap-y-5">
           {projects.map((project, index) => {
             if (index % 2 == 0) {
               return (
                 <li
                   key={project.id}
-                  className="flex items-start justify-between h-96 max-md:flex-col max-md:items-center max-md:h-[500px] max-lg:items-center"
+                  className="flex items-start justify-between h-96 max-md:flex-col max-md:items-center max-md:h-[500px] max-lg:items-center mt-20"
                 >
                   <img
                     data-aos="fade-right"
                     data-aos-duration="1000"
                     src={project.img}
                     alt={project.projectName + " png"}
-                    className="rounded-xl w-[733px] object-cover object-right h-full max-xl:w-2/3 max-md:w-full max-md:mb-5 max-lg:h-72 max-lg:w-500"
+                    className="rounded-xl w-[733px] object-cover object-right h-full max-xl:w-2/3 max-md:w-full max-md:mb-0 max-lg:h-72 max-lg:w-500"
                   />
 
                   <div
@@ -63,7 +63,7 @@ const Projects = () => {
                       <a
                         target="_blank"
                         href={project.gitHb}
-                        className="flex items-center gap-5 rounded-md border-2 border-[#1C1C1C] px-5 py-3 hover:bg-transparent vscodehover transition-all"
+                        className="flex items-center gap-5 rounded-md border-2 border-[#1C1C1C] px-5 py-3 hover:bg-transparent vscodehover transition-all max-md:text-xs max-md:py-1"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,7 @@ const Projects = () => {
                       <a
                         target="_blank"
                         href={project.netlify}
-                        className="howereffec flex items-center gap-5  border-2 border-[#1C1C1C] px-5 py-2.5 rounded-md transition-all"
+                        className="howereffec flex items-center gap-5  border-2 border-[#1C1C1C] px-5 py-2.5 rounded-md transition-all max-md:text-xs max-md:py-0.5"
                       >
                         {" "}
                         <svg
@@ -148,7 +148,7 @@ const Projects = () => {
                       <a
                         target="_blank"
                         href={project.gitHb}
-                        className="flex items-center gap-5 rounded-md border-2 border-[#1C1C1C] px-5 py-3 hover:bg-transparent vscodehover transition-all"
+                        className="flex items-center gap-5 rounded-md border-2 border-[#1C1C1C] px-5 py-3 hover:bg-transparent vscodehover transition-all max-md:text-xs max-md:py-1"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -169,7 +169,7 @@ const Projects = () => {
                       <a
                         target="_blank"
                         href={project.netlify}
-                        className="howereffec flex items-center gap-5  border-2 border-[#1C1C1C] px-5 py-2.5 rounded-md transition-all"
+                        className="howereffec flex items-center gap-5  border-2 border-[#1C1C1C] px-5 py-2.5 rounded-md transition-all max-md:text-xs max-md:py-0.5"
                       >
                         {" "}
                         <svg
