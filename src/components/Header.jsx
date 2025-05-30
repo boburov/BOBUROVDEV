@@ -20,7 +20,7 @@ const Header = () => {
 
     return (
         <div className='border-b-2'>
-            <div className="container py-2 flex items-center justify-between">
+            <div className="container py-5 flex items-center justify-between max-md:py-2">
                 <p data-aos="fade-right"
                     data-aos-duration="1000" className='montbold text-2xl leading-0 tracking-tighter max-md:text-xl'>BOBUROV.DEV</p>
                 <img src={hambergermenu} onClick={() => setModal(!modal)} className='w-16 p-3 bg-blend-color-burn ml-36 hidden max-md:block cursor-pointer' alt="" />
