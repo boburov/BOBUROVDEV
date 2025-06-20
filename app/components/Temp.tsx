@@ -61,7 +61,8 @@ const Contact = () => {
             Get In Touch
           </h2>
           <p className="text-gray-700 text-lg max-md:text-base">
-            Whether you have a question, feedback, or collaboration idea — I'm
+            Whether you have a question, feedback, or collaboration idea —{" "}
+            {`I'm`}
             just one message away.
           </p>
 
