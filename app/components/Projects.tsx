@@ -39,7 +39,7 @@ const Projects = () => {
                   <Image
                     src={project.img}
                     alt={project.projectName}
-                    className="w-full h-80 object-cover grayscale hover:grayscale-0 transition duration-500"
+                    className="w-full h-80 object-cover transition duration-500"
                   />
                 </div>
               </div>

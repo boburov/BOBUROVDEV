@@ -86,7 +86,7 @@ const Home = () => {
             <Image
               src={ink}
               alt="Ink Texture"
-              className="w-full h-auto object-cover grayscale hover:grayscale-0 transition duration-700 ease-in-out"
+              className="w-full h-auto object-cover transition duration-700 ease-in-out"
             />
 
             <div className="absolute bottom-4 right-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full shadow-lg tracking-wide uppercase">

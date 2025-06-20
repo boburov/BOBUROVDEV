@@ -31,7 +31,7 @@ const About = () => {
             <Image
               src={aboutImg}
               alt="Office work"
-              className="object-cover w-full h-full grayscale hover:grayscale-0 transition duration-700 ease-in-out"
+              className="object-cover w-full h-full transition duration-700 ease-in-out"
             />
           </div>
 
