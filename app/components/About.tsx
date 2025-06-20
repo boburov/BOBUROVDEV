@@ -41,7 +41,7 @@ const About = () => {
             </h3>
 
             <p className="text-gray-700 text-base leading-relaxed text-justify max-md:text-sm">
-              I’m{" "}
+              {"I’m "}
               <span className="text-[#0f0f0f] font-semibold">
                 Boburov Shukurullo
               </span>{" "}

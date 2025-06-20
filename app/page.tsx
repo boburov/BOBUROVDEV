@@ -7,14 +7,7 @@ import ink from "./assets/ink.webp";
 import Image from "next/image";
 import Header from "./components/Header";
 
-// Lucide icons
-import {
-  Code,
-  MousePointer,
-  Rocket,
-  Zap,
-  MonitorSmartphone,
-} from "lucide-react";
+import { Code, MousePointer, Rocket, Zap } from "lucide-react";
 import Projects from "./components/Projects";
 import About from "./components/About";
 import Ability from "./components/Ability";
@@ -44,8 +37,8 @@ const Home = () => {
             data-aos-delay="100"
           >
             <p>
-              I’m <strong className="text-black">Boburov Shukurullo</strong> — a
-              frontend engineer crafting fast, scalable, and elegant user
+              {`I’m`} <strong className="text-black">Boburov Shukurullo</strong>{" "}
+              — a frontend engineer crafting fast, scalable, and elegant user
               interfaces with a strong focus on real-world usability.
             </p>
             <p>
@@ -98,11 +91,11 @@ const Home = () => {
 
       <About />
 
-      <Ability/>
+      <Ability />
 
       <Projects />
 
-    <Contact/>
+      <Contact />
     </>
   );
 };

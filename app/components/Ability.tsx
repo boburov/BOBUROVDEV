@@ -87,7 +87,7 @@ const Ability = () => {
 
             <p data-aos="fade-up">
               I began my coding journey in <strong>2021</strong> from Chinobod,
-              Uzbekistan. Since then, I’ve consistently built real-world
+              Uzbekistan. Since then, {`I’ve`} consistently built real-world
               frontend applications.
             </p>
 
@@ -100,14 +100,15 @@ const Ability = () => {
             </p>
 
             <p data-aos="fade-up" data-aos-delay="200">
-              I specialize in <strong>React</strong>, and I’m currently learning
+              I specialize in <strong>React</strong>, and {`I’m`} currently
+              learning
               <strong> 3D animations</strong>, canvas rendering, and advanced
               frontend architectures.
             </p>
 
             <p data-aos="fade-up" data-aos-delay="300">
-              My goal is to become a senior frontend developer by the end of
-              the year and reach <strong>Upper Intermediate</strong> English
+              My goal is to become a senior frontend developer by the end of the
+              year and reach <strong>Upper Intermediate</strong> English
               proficiency.
             </p>
           </div>
