@@ -3,99 +3,211 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import ink from "./assets/ink.webp";
+import ink from "./assets/profilepic.jpg";
 import Image from "next/image";
+
+import {
+  Code, Plus, Rocket, VerifiedIcon,
+} from "lucide-react";
+
 import Header from "./components/Header";
-
-import { Code, MousePointer, Rocket, Zap } from "lucide-react";
-import Projects from "./components/Projects";
-import About from "./components/About";
-import Ability from "./components/Ability";
-import Contact from "./components/Temp";
-
+import mardonbek from '../public/mardonbek.jpg'
+import muhammadali from '../public/muhammadali.jpeg'
 const Home = () => {
   useEffect(() => {
-    AOS.init({ duration: 700, once: true });
+    AOS.init({ duration: 800, once: true });
   }, []);
+
+  const skills = [
+    { name: "HTML", icon: "html", status: "success" },
+    { name: "CSS", icon: "css", status: "success" },
+    { name: "Tailwind", icon: "tailwind", status: "success" },
+    { name: "JavaScript", icon: "js", status: "success" },
+    { name: "TypeScript", icon: "ts", status: "process" },
+    { name: "React", icon: "react", status: "success" },
+    { name: "Next.js", icon: "nextjs", status: "process" },
+    { name: "Node.js", icon: "nodejs", status: "process" },
+    { name: "NestJS", icon: "nestjs", status: "process" },
+    { name: "Git", icon: "git", status: "success" },
+    { name: "NPM", icon: "npm", status: "success" },
+    { name: "MUI", icon: "mui", status: "success" },
+    { name: "Figma", icon: "figma", status: "success" },
+  ];
+  const myTeam = [
+    {
+      img: mardonbek,
+      name: "Mardonbek Khamidov",
+      description: "React va TypeScript muhandisi. Mijozlar ehtiyojini tezda anglaydi.",
+      projects: 26
+    },
+    {
+      img: muhammadali,
+      name: "Muhammadali Jamolov",
+      description: "Next.js va UI dizayn mutaxassisi. Tajribali va samarali.",
+      projects: 18
+    },
+    {
+      img: ink,
+      name: "Boburov Shukurullo",
+      description: "NestJS va Frontend texnologiyalar bo‘yicha kuchli fullstack dasturchi.",
+      projects: 34
+    }
+  ];
 
   return (
     <>
       <Header />
 
-      <section className="max-w-[1200px] mx-auto px-4 grid grid-cols-2 gap-14 py-28 items-center max-md:grid-cols-1">
-        <div className="flex flex-col gap-8 max-md:text-center">
-          <h1
-            className="text-5xl max-md:text-3xl font-bold text-[#0f0f0f] leading-tight"
-            data-aos="fade-right"
-          >
-            I Build Fast, Functional & Beautiful Interfaces
-          </h1>
+      <section className="container py-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-white mt-20">
 
-          <div
-            className="text-gray-600 text-lg max-md:text-base leading-relaxed space-y-4"
-            data-aos="fade-right"
-            data-aos-delay="100"
-          >
-            <p>
-              {`I’m`} <strong className="text-black">Boburov Shukurullo</strong>{" "}
-              — a frontend engineer crafting fast, scalable, and elegant user
-              interfaces with a strong focus on real-world usability.
-            </p>
-            <p>
-              I specialize in{" "}
-              <span className="inline-flex items-center gap-1 text-black font-medium">
-                <Code className="w-4 h-4" /> React.js
-              </span>
-              ,{" "}
-              <span className="inline-flex items-center gap-1 text-black font-medium">
-                <Zap className="w-4 h-4" /> JavaScript
-              </span>{" "}
-              and{" "}
-              <span className="inline-flex items-center gap-1 text-black font-medium">
-                <MousePointer className="w-4 h-4" /> Tailwind CSS
-              </span>
-              . My goal? Build pixel-perfect, intuitive products that **people
-              enjoy using**.
-            </p>
+        <div
+          className="bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f]"
+          data-aos="fade-up"
+        >
+          <div className="w-full flex gap-4 items-center">
+            <Image src={ink} alt="profile img" className="rounded-full w-16 h-16 object-cover" />
+            <div className="h-20 flex flex-col justify-center">
+              <h2 className="text-xl font-bold montbold">Boburov Shukurullo</h2>
+              <p>@boburov</p>
+            </div>
           </div>
-
-          <div
-            className="text-sm font-semibold text-gray-800 cursor-pointer border-t border-gray-300 pt-4 w-fit max-md:mx-auto hover:opacity-80 transition-opacity flex items-center gap-2"
-            data-aos="fade-right"
-            data-aos-delay="200"
-          >
-            <Rocket className="w-4 h-4" />
-            EXPLORE TECH STACK
+          <p className="text-xs uppercase tracking-widest text-gray-400">Full Stack Developer</p>
+          <p className="text-sm text-gray-400 montmed mb-4">
+            I build clean & functional web apps using NestJS, Next.js and TailwindCSS
+          </p>
+          <div className="grid grid-cols-7 gap-2">
+            {skills.map((skill, index) => {
+              return <div key={index} className="bg-white p-1 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+                <img src={` https://skillicons.dev/icons?i=${skill.icon}`} alt="salom" />
+              </div>
+            })}
           </div>
         </div>
 
         <div
-          data-aos="fade-left"
-          className="relative max-md:mt-10 max-md:mx-auto max-md:w-3/4"
+          className="grid grid-cols-2 gap-3 items-center justify-center "
+          data-aos="fade-up"
+          data-aos-delay="100"
         >
-          <div className="absolute inset-0 z-0 rounded-xl bg-gradient-to-tr from-purple-200 via-white to-indigo-100 blur-2xl opacity-60"></div>
+          <div className="bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl text-center w-full h-full flex flex-col items-center justify-center shadow-xl  border border-[#3a3a3f]">
+            <h3 className="text-2xl font-bold text-indigo-400 montbold">+3</h3>
+            <p className="text-sm text-gray-400 montmed">Yillik Tajriba</p>
+          </div>
+          <div className="bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl text-center w-full h-full flex flex-col items-center justify-center shadow-xl  border border-[#3a3a3f]">
+            <h3 className="text-2xl font-bold text-indigo-400 montbold">+100</h3>
+            <p className="text-sm text-gray-400 montmed">Loyihalar</p>
+          </div>
+          <div className="bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl text-center w-full h-full flex flex-col items-center justify-center shadow-xl  border border-[#3a3a3f]">
+            <Rocket className="mx-auto text-indigo-400" />
+            <p className="text-sm text-gray-400 mt-1 montmed">Tez yetkazish</p>
+          </div>
+          <div className="bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl text-center w-full h-full flex flex-col items-center justify-center shadow-xl  border border-[#3a3a3f]">
+            <Code className="mx-auto text-indigo-400" />
+            <p className="text-sm text-gray-400 mt-1 montmed">Toza Kod</p>
+          </div>
+        </div>
 
-          <div className="relative z-10 rounded-2xl overflow-hidden border border-gray-200 shadow-lg bg-white/10 backdrop-blur-xl transition-transform hover:scale-[1.01] duration-500">
-            <Image
-              src={ink}
-              alt="Ink Texture"
-              className="w-full h-auto object-cover transition duration-700 ease-in-out"
-            />
+        <div
+          className="bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-6 flex flex-col justify-between shadow-xl border border-[#3a3a3f]"
+          data-aos="fade-up"
+          data-aos-delay="200"
+        >
+          <div>
+            <p className="uppercase text-gray-400 text-xs tracking-widest mb-3">Keling birga ishlaylik</p>
+            <h2 className="text-2xl font-extrabold leading-snug mb-4 text-balance montbold">
+              Let's <span className="text-indigo-400">work</span> together.
+            </h2>
+            <p className="text-sm text-gray-400 mb-6 montmed">
+              Sizning g‘oyangizni kuchli texnologiya bilan hayotga olib chiqamiz.
+            </p>
+          </div>
+          <div className="flex gap-4">
+            <a
+              href="#projects"
+              className="bg-indigo-500 hover:bg-indigo-600 px-4 py-2 rounded-full text-sm font-medium transition montmed"
+            >
+              Loyihalar
+            </a>
+            <a
+              href="#contact"
+              className="border border-gray-600 hover:border-indigo-400 px-4 py-2 rounded-full text-sm font-medium transition montmed"
+            >
+              Bog'lanish
+            </a>
+          </div>
+        </div>
 
-            <div className="absolute bottom-4 right-4 bg-black/70 text-white text-xs px-3 py-1 rounded-full shadow-lg tracking-wide uppercase">
-              Inspired by Real UX
+      </section>
+
+
+      <section className="container mx-auto py-5">
+        <div className="flex gap-8 items-start">
+          <div className="w-[90%] grid grid-cols-1 md:grid-cols-3 gap-6">
+            {myTeam.map((guy, index) => (
+              <div
+                key={index}
+                className="relative h-[400px] rounded-2xl overflow-hidden group shadow-2xl border border-neutral-800 bg-neutral-900"
+              >
+                <Image
+                  src={guy.img}
+                  alt={guy.name}
+                  className="absolute inset-0 object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                />
+
+                <div className="absolute bottom-0 w-[94%] rounded-xl mx-2 mb-2 h-48 bg-gradient-to-t from-[#2b2b30] via-[#2b2b30] to-[#2b2b30] z-10" />
+
+                <div className="absolute bottom-5 left-5 right-5 z-20 text-white space-y-2">
+                  <h2 className="text-base font-semibold flex items-center gap-2 break-words">
+                    {guy.name}
+                    <VerifiedIcon className="w-5 h-5 fill-white stroke-black" strokeWidth={1} />
+                  </h2>
+
+                  <p className="text-xs text-white/80 leading-normal">
+                    {guy.description}
+                  </p>
+                  <div className="flex items-center justify-between">
+
+                    <p className="text-sm font-medium text-white/60">
+                      <Rocket className="inline mr-1 text-indigo-400 w-4 h-4" />
+                      {guy.projects}+ loyiha
+                    </p>
+
+                    <button className="flex items-center gap-1 px-4 py-1.5 text-sm font-semibold rounded-full bg-white/10 border border-white/20 backdrop-blur-sm text-white hover:bg-white/20 transition">
+                      Follow <Plus />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ))}
+
+          </div>
+
+          <div className="w-[30%] hidden md:block">
+            <div className="h-full w-full bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] flex items-center gap-4">
+              Languages | <img src="https://flagcdn.com/w40/uz.png" alt="Oʻzbekcha" className="w-6 h-4 rounded-sm shadow-sm" />
+              <img src="https://flagcdn.com/w40/gb.png" alt="English" className="w-6 h-4 rounded-sm shadow-sm" />
+
             </div>
           </div>
         </div>
       </section>
 
-      <About />
+      <div className="card">
+        <Image src={mardonbek} alt="Sophie Bennett" />
+        <div className="overlay">
+          <div className="info">
+            <h3>Sophie Bennett ✅</h3>
+            <p>A Product Designer focused on intuitive user experiences.</p>
+            <div className="stats">
+              <span>👤 312</span>
+              <span>💬 48</span>
+            </div>
+            <button>Follow ➕</button>
+          </div>
+        </div>
+      </div>
 
-      <Ability />
 
-      <Projects />
-
-      <Contact />
     </>
   );
 };

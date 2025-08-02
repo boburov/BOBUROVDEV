@@ -6,75 +6,6 @@ import "aos/dist/aos.css";
 import { scrollPage } from "../functions/scrollUp";
 import menuIcon from "../assets/icons/menu.svg";
 
-const Header = () => {
-  const [modalOpen, setModalOpen] = useState(false);
-
-  useEffect(() => {
-    AOS.init({ duration: 600, once: true });
-  }, []);
-
-  const ScroollDown = (pos: number) => {
-    scrollPage(pos);
-    setModalOpen(false);
-  };
-
-  return (
-    <header
-      className="mt-3 container py-3 
-      bg-white/30 backdrop-blur-lg border border-white/20 rounded-2xl shadow-md flex items-center justify-between"
-    >
-      <h1
-        data-aos="fade-right"
-        className="text-2xl font-bold text-black tracking-tight"
-      >
-        BOBUROV.DEV
-      </h1>
-
-      <button
-        onClick={() => setModalOpen(!modalOpen)}
-        className="md:hidden focus:outline-none"
-      >
-        <img src={menuIcon} alt="Menu" className="w-6 h-6" />
-      </button>
-
-      <nav
-        data-aos="fade-left"
-        className="hidden md:flex space-x-8 font-medium text-gray-900"
-      >
-        {navItems.map(({ label, pos }) => (
-          <NavItem key={label} label={label} scrollTo={pos} />
-        ))}
-      </nav>
-
-      {modalOpen && (
-        <div className="absolute top-full mt-2 left-0 w-full rounded-b-2xl bg-white/70 backdrop-blur-md border-t border-white/30 shadow-md md:hidden">
-          <ul className="flex flex-col space-y-3 px-6 py-4 text-gray-900 font-medium">
-            {navItems.map(({ label, pos }) => (
-              <li
-                key={label}
-                onClick={() => ScroollDown(pos)}
-                className="cursor-pointer hover:opacity-80 transition"
-              >
-                {label}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </header>
-  );
-};
-
-const NavItem = ({ label, scrollTo }: { label: string; scrollTo: number }) => (
-  <span
-    onClick={() => scrollPage(scrollTo)}
-    className="cursor-pointer relative group text-sm tracking-wide uppercase hover:opacity-80 transition"
-  >
-    {label}
-    <span className="absolute left-0 bottom-0 h-[1.5px] w-0 bg-black group-hover:w-full transition-all duration-300"></span>
-  </span>
-);
-
 const navItems = [
   { label: "Home", pos: 0 },
   { label: "About", pos: 700 },
@@ -82,5 +13,82 @@ const navItems = [
   { label: "Skills", pos: 2850 },
   { label: "Contact", pos: 3800 },
 ];
+
+const Header = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  useEffect(() => {
+    AOS.init({ duration: 600, once: true });
+  }, []);
+
+  const scrollToPosition = (pos: number) => {
+    scrollPage(pos);
+    setModalOpen(false);
+  };
+
+  return (
+    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-full max-w-6xl bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl px-6 py-3 shadow-lg flex items-center justify-between">
+      <h1
+        data-aos="fade-right"
+        className="text-xl md:text-2xl font-bold text-white tracking-tight"
+      >
+        <span className="text-indigo-400">BOBUROV</span>.DEV
+      </h1>
+
+      <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-200">
+        {navItems.map(({ label, pos }) => (
+          <NavItem key={label} label={label} scrollTo={() => scrollToPosition(pos)} />
+        ))}
+        <TalkButton />
+      </nav>
+
+      <div className="md:hidden flex items-center space-x-4">
+        <button onClick={() => setModalOpen(!modalOpen)} className="focus:outline-none">
+          <img src={menuIcon} alt="Menu" className="w-6 h-6" />
+        </button>
+      </div>
+
+      {/* Mobile dropdown */}
+      {modalOpen && (
+        <div className="absolute top-full mt-2 left-0 w-full rounded-b-2xl bg-white/10 backdrop-blur-xl border-t border-white/10 shadow-md md:hidden z-40">
+          <ul className="flex flex-col px-6 py-4 text-white text-sm font-medium space-y-4">
+            {navItems.map(({ label, pos }) => (
+              <li
+                key={label}
+                onClick={() => scrollToPosition(pos)}
+                className="cursor-pointer uppercase tracking-wide hover:text-indigo-400 transition"
+              >
+                {label}
+              </li>
+            ))}
+            <li>
+              <TalkButton fullWidth />
+            </li>
+          </ul>
+        </div>
+      )}
+    </header>
+  );
+};
+
+const NavItem = ({ label, scrollTo }: { label: string; scrollTo: () => void }) => (
+  <span
+    onClick={scrollTo}
+    className="cursor-pointer relative group uppercase tracking-wide hover:text-indigo-400 transition"
+  >
+    {label}
+    <span className="absolute left-0 bottom-0 h-[1.5px] w-0 bg-indigo-400 group-hover:w-full transition-all duration-300 rounded-full"></span>
+  </span>
+);
+
+const TalkButton = ({ fullWidth = false }: { fullWidth?: boolean }) => (
+  <button
+    className={`uppercase tracking-wide px-5 py-2 border border-indigo-400 text-indigo-300 hover:bg-indigo-400 hover:text-white transition rounded-full ${
+      fullWidth ? "w-full mt-2" : ""
+    }`}
+  >
+    Let's talk
+  </button>
+);
 
 export default Header;
