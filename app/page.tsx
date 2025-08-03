@@ -117,7 +117,7 @@ const Home = () => {
           <div>
             <p className="uppercase text-gray-400 text-xs tracking-widest mb-3">Keling birga ishlaylik</p>
             <h2 className="text-2xl font-extrabold leading-snug mb-4 text-balance montbold">
-              Let<span>&apos;</span>s <span className="text-indigo-400">work</span> together.
+             Work with Me
             </h2>
 
 
