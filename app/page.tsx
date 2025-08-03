@@ -120,6 +120,7 @@ const Home = () => {
               Let<span>&apos;</span>s <span className="text-indigo-400">work</span> together.
             </h2>
 
+
             <p className="text-sm text-gray-400 mb-6 montmed">
               {"We bring your ideas to life with powerful technology."}
             </p>

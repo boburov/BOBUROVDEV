@@ -87,7 +87,7 @@ const TalkButton = ({ fullWidth = false }: { fullWidth?: boolean }) => (
     className={`uppercase tracking-wide px-5 py-2 border border-indigo-400 text-indigo-300 hover:bg-indigo-400 hover:text-white transition rounded-full ${fullWidth ? "w-full mt-2" : ""
       }`}
   >
-    {`Let&apos;s talk`}
+    {`Let's talk`}
   </button>
 );
 
