@@ -80,7 +80,7 @@ const Home = () => {
           <div className="grid grid-cols-7 gap-2">
             {skills.map((skill, index) => {
               return <div key={index} className="bg-white p-1 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                <Image src={` https://skillicons.dev/icons?i=${skill.icon}`} alt="salom" />
+                <img src={` https://skillicons.dev/icons?i=${skill.icon}`} alt="salom" />
               </div>
             })}
           </div>
@@ -117,7 +117,7 @@ const Home = () => {
           <div>
             <p className="uppercase text-gray-400 text-xs tracking-widest mb-3">Keling birga ishlaylik</p>
             <h2 className="text-2xl font-extrabold leading-snug mb-4 text-balance montbold">
-              {"Let's "}<span className="text-indigo-400">work</span> together.
+              {`Let's `}<span className="text-indigo-400">work</span> together.
             </h2>
             <p className="text-sm text-gray-400 mb-6 montmed">
               {"We bring your ideas to life with powerful technology."}
@@ -190,8 +190,8 @@ const Home = () => {
           <div className="w-[30%] hidden md:flex flex-col gap-4">
             <div className="w-full bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] flex items-center gap-4">
               Languages |
-              <Image src="https://flagcdn.com/w40/uz.png" alt="Oʻzbekcha" className="w-6 h-4 rounded-sm shadow-sm" />
-              <Image src="https://flagcdn.com/w40/gb.png" alt="English" className="w-6 h-4 rounded-sm shadow-sm" />
+              <img src="https://flagcdn.com/w40/uz.png" alt="Oʻzbekcha" className="w-6 h-4 rounded-sm shadow-sm" />
+              <img src="https://flagcdn.com/w40/gb.png" alt="English" className="w-6 h-4 rounded-sm shadow-sm" />
             </div>
 
             <div className="w-full bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] text-white">
