@@ -5,6 +5,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { scrollPage } from "../functions/scrollUp";
 import menuIcon from "../assets/icons/menu.svg";
+import Image from "next/image";
 
 const navItems = [
   { label: "Home", pos: 0 },
@@ -44,7 +45,7 @@ const Header = () => {
 
       <div className="md:hidden flex items-center space-x-4">
         <button onClick={() => setModalOpen(!modalOpen)} className="focus:outline-none">
-          <img src={menuIcon} alt="Menu" className="w-6 h-6" />
+          <Image src={menuIcon} alt="Menu" className="w-6 h-6" />
         </button>
       </div>
 
@@ -83,11 +84,10 @@ const NavItem = ({ label, scrollTo }: { label: string; scrollTo: () => void }) =
 
 const TalkButton = ({ fullWidth = false }: { fullWidth?: boolean }) => (
   <button
-    className={`uppercase tracking-wide px-5 py-2 border border-indigo-400 text-indigo-300 hover:bg-indigo-400 hover:text-white transition rounded-full ${
-      fullWidth ? "w-full mt-2" : ""
-    }`}
+    className={`uppercase tracking-wide px-5 py-2 border border-indigo-400 text-indigo-300 hover:bg-indigo-400 hover:text-white transition rounded-full ${fullWidth ? "w-full mt-2" : ""
+      }`}
   >
-    Let's talk
+    {"Let's talk"}
   </button>
 );
 
