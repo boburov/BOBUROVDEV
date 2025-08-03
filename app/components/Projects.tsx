@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { ExternalLink, Github, Layers3 } from "lucide-react";
+import { ExternalLink, Github, Instagram, MessageCircleCode, VerifiedIcon, Youtube } from "lucide-react";
 import { loyihalar } from "../data";
 import Image from "next/image";
 
@@ -12,76 +12,131 @@ const Projects = () => {
     AOS.init({ duration: 800, once: true });
   }, []);
 
+  const skills = [
+    { name: "HTML", icon: "html", status: "success" },
+    { name: "CSS", icon: "css", status: "success" },
+    { name: "Tailwind", icon: "tailwind", status: "success" },
+    { name: "JavaScript", icon: "js", status: "success" },
+    { name: "TypeScript", icon: "ts", status: "process" },
+    { name: "React", icon: "react", status: "success" },
+    { name: "Next.js", icon: "nextjs", status: "process" },
+    { name: "Node.js", icon: "nodejs", status: "process" },
+    { name: "NestJS", icon: "nestjs", status: "process" },
+    { name: "Git", icon: "git", status: "success" },
+    { name: "NPM", icon: "npm", status: "success" },
+    { name: "MUI", icon: "mui", status: "success" },
+    { name: "Figma", icon: "figma", status: "success" },
+    { name: "Docker", icon: "docker", status: "success" },
+  ];
+
   return (
-    <section id="projects" className="py-24 bg-[#dadada]">
-      <div className="container">
-        <div className="mb-16">
-          <h1 className="text-5xl font-bold text-[#0f0f0f] tracking-tight">
-            <Layers3 className="inline mr-2 mb-1" size={36} />
-            Projects
+    <section id="projects" className="py-2">
+      <div className="container mx-auto px-4">
+
+        <div className="flex gap-5">
+          <h1 className="w-1/2 mb-5 bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] flex items-center gap-4">
+            Every Line of Code, Every Pixel of Thought — A Project Story
           </h1>
-          <p className="text-gray-600 text-lg mt-3">
-            Each project is a unique piece of digital craftsmanship
-          </p>
+
+          <h1 className="w-full sm:w-2/3 lg:w-1/2 mb-5 bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] flex flex-row gap-3 ">
+            <div className="flex w-40 items-center gap-4 text-white text-xl font-semibold">
+              Join My Blog
+            </div>
+            <div className="flex gap-4 mt-2 flex-wrap">
+              <a
+                href="https://t.me/yourtelegram"
+                target="_blank"
+                className="hover:text-indigo-400 text-gray-300 transition flex items-center gap-2"
+              >
+                <MessageCircleCode size={18} /> Telegram
+              </a>
+              <a
+                href="https://youtube.com/yourchannel"
+                target="_blank"
+                className="hover:text-red-500 text-gray-300 transition flex items-center gap-2"
+              >
+                <Youtube size={18} /> YouTube
+              </a>
+              <a
+                href="https://instagram.com/yourhandle"
+                target="_blank"
+                className="hover:text-pink-400 text-gray-300 transition flex items-center gap-2"
+              >
+                <Instagram size={18} /> Instagram
+              </a>
+            </div>
+          </h1>
         </div>
 
-        <div className="flex flex-col gap-20">
+        <div className="mb-5 bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] flex items-center gap-4">
+          <span className="text-xl font-semibold text-white w-40">⚙️ Tech Stack & Tools I Love</span>
+
+          <span className="text-5xl">|</span>
+          {skills.map((skill, index) => {
+            return <div key={index} className="bg-white p-1 rounded-xl shadow-md hover:shadow-lg transition duration-300">
+              <img src={` https://skillicons.dev/icons?i=${skill.icon}`} alt="salom" />
+            </div>
+          })}
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {loyihalar.map((project, i) => (
             <div
               key={project.id}
-              className={`flex flex-col-reverse lg:flex-row items-center gap-12 ${
-                i % 2 !== 0 ? "lg:flex-row-reverse" : ""
-              }`}
+              className="relative h-[420px] rounded-2xl overflow-hidden group shadow-2xl border border-white/10 hover:shadow-indigo-800/20 transition-shadow duration-500"
               data-aos={i % 2 === 0 ? "fade-up-right" : "fade-up-left"}
-            >
-              <div className="w-full lg:w-1/2">
-                <div className="rounded-2xl overflow-hidden border border-white/20 shadow-xl backdrop-blur-lg bg-white/20">
-                  <Image
-                    src={project.img}
-                    alt={project.projectName}
-                    className="w-full h-80 object-cover transition duration-500"
-                  />
-                </div>
-              </div>
+            >              <Image
+                src={project.img}
+                alt={project.projectName}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                fill
+              />
+              <div className="absolute inset-0 z-10 backdrop-blur-md transition-opacity duration-700 opacity-100 group-hover:opacity-0" />
 
-              <div className="w-full lg:w-1/2 px-2 text-center lg:text-left">
-                <h2 className="text-3xl font-semibold text-[#0f0f0f] mb-3">
-                  {project.projectName}
-                </h2>
-                <p className="text-gray-700 mb-5 leading-relaxed text-base">
-                  {project.description}
-                </p>
+              <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/80 via-black/60 to-black/20 transition-all duration-700">
+                <div className="absolute bottom-0 p-5 w-full flex flex-col justify-end transform group-hover:opacity-0 transition-all duration-700 ease-out">
 
-                <div className="flex flex-wrap justify-center lg:justify-start gap-2 mb-6">
-                  {project.usingLanguage.map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="text-sm px-3 py-1 bg-white text-black border border-gray-300 rounded-full shadow-sm"
+                  <h2 className="text-2xl font-bold text-white mb-2 flex items-center gap-2 drop-shadow">
+                    {project.projectName}
+                    <VerifiedIcon className="w-5 h-5 fill-white stroke-black" strokeWidth={1} />
+                  </h2>
+
+                  <p className="text-sm text-white/80 mb-4 line-clamp-3">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.usingLanguage.map((tech, idx) => (
+                      <span
+                        key={idx}
+                        className="text-xs px-3 py-1 rounded-full bg-white/10 text-white border border-white/10 shadow-sm hover:bg-white/20 transition"
+                      >
+                        #{tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex gap-3">
+                    <a
+                      href={project.gitHb}
+                      target="_blank"
+                      className="flex items-center gap-2 px-4 py-1.5 text-xs font-medium text-white bg-white/10 border border-white/20 rounded-full hover:bg-indigo-500/20 transition backdrop-blur-sm"
                     >
-                      #{tech}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex justify-center lg:justify-start gap-4">
-                  <a
-                    href={project.gitHb}
-                    target="_blank"
-                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium border border-black rounded-md hover:bg-black hover:text-white transition"
-                  >
-                    <Github size={18} />
-                    Code
-                  </a>
-                  <a
-                    href={project.netlify}
-                    target="_blank"
-                    className="flex items-center gap-2 px-4 py-2 text-sm font-medium border border-black rounded-md hover:bg-black hover:text-white transition"
-                  >
-                    <ExternalLink size={18} />
-                    Live
-                  </a>
+                      <Github size={16} />
+                      Code
+                    </a>
+                    <a
+                      href={project.netlify}
+                      target="_blank"
+                      className="flex items-center gap-2 px-4 py-1.5 text-xs font-medium text-white bg-white/10 border border-white/20 rounded-full hover:bg-green-500/20 transition backdrop-blur-sm"
+                    >
+                      <ExternalLink size={16} />
+                      Live
+                    </a>
+                  </div>
                 </div>
               </div>
+
             </div>
           ))}
         </div>

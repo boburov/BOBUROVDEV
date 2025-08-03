@@ -7,12 +7,13 @@ import ink from "./assets/profilepic.jpg";
 import Image from "next/image";
 
 import {
-  Code, Plus, Rocket, VerifiedIcon,
+  Code, Download, Plus, Rocket, VerifiedIcon,
 } from "lucide-react";
 
 import Header from "./components/Header";
 import mardonbek from '../public/mardonbek.jpg'
 import muhammadali from '../public/muhammadali.jpeg'
+import Projects from "./components/Projects";
 const Home = () => {
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
@@ -33,6 +34,7 @@ const Home = () => {
     { name: "MUI", icon: "mui", status: "success" },
     { name: "Figma", icon: "figma", status: "success" },
   ];
+
   const myTeam = [
     {
       img: mardonbek,
@@ -123,16 +125,18 @@ const Home = () => {
           </div>
           <div className="flex gap-4">
             <a
-              href="#projects"
-              className="bg-indigo-500 hover:bg-indigo-600 px-4 py-2 rounded-full text-sm font-medium transition montmed"
+              href="/cv.pdf"
+              download
+              className="bg-indigo-500 hover:bg-indigo-600 px-4 py-2 rounded-full text-sm font-medium transition montmed flex items-center gap-2 text-white"
             >
-              Loyihalar
+              <Download size={16} />
+              Download CV
             </a>
             <a
               href="#contact"
-              className="border border-gray-600 hover:border-indigo-400 px-4 py-2 rounded-full text-sm font-medium transition montmed"
+              className="border border-gray-600 hover:border-indigo-400 px-4 py-2 rounded-full text-sm font-medium transition montmed text-white"
             >
-              Bog'lanish
+              Talk with Me
             </a>
           </div>
         </div>
@@ -146,15 +150,17 @@ const Home = () => {
             {myTeam.map((guy, index) => (
               <div
                 key={index}
-                className="relative h-[400px] rounded-2xl overflow-hidden group shadow-2xl border border-neutral-800 bg-neutral-900"
+                className="relative h-[400px] rounded-2xl overflow-hidden group shadow-xl border border-neutral-800 bg-neutral-900"
               >
                 <Image
                   src={guy.img}
                   alt={guy.name}
-                  className="absolute inset-0 object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 
-                <div className="absolute bottom-0 w-[94%] rounded-xl mx-2 mb-2 h-48 bg-gradient-to-t from-[#2b2b30] via-[#2b2b30] to-[#2b2b30] z-10" />
+                <div className="absolute bottom-2 left-0 right-0 h-48 z-10 pointer-events-none">
+                  <div className="w-[94%] mx-auto h-full rounded-xl bg-gradient-to-t from-[#2b2b30]/90 via-[#2b2b30]/80 to-[#2b2b30]/50 backdrop-blur-xl border-b-2 border-x-2 border-white/10" />
+                </div>
 
                 <div className="absolute bottom-5 left-5 right-5 z-20 text-white space-y-2">
                   <h2 className="text-base font-semibold flex items-center gap-2 break-words">
@@ -162,11 +168,11 @@ const Home = () => {
                     <VerifiedIcon className="w-5 h-5 fill-white stroke-black" strokeWidth={1} />
                   </h2>
 
-                  <p className="text-xs text-white/80 leading-normal">
+                  <p className="text-xs text-white/80 leading-normal line-clamp-3">
                     {guy.description}
                   </p>
-                  <div className="flex items-center justify-between">
 
+                  <div className="flex items-center justify-between">
                     <p className="text-sm font-medium text-white/60">
                       <Rocket className="inline mr-1 text-indigo-400 w-4 h-4" />
                       {guy.projects}+ loyiha
@@ -179,35 +185,37 @@ const Home = () => {
                 </div>
               </div>
             ))}
-
           </div>
 
-          <div className="w-[30%] hidden md:block">
-            <div className="h-full w-full bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] flex items-center gap-4">
-              Languages | <img src="https://flagcdn.com/w40/uz.png" alt="Oʻzbekcha" className="w-6 h-4 rounded-sm shadow-sm" />
+          <div className="w-[30%] hidden md:flex flex-col gap-4">
+            <div className="w-full bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] flex items-center gap-4">
+              Languages |
+              <img src="https://flagcdn.com/w40/uz.png" alt="Oʻzbekcha" className="w-6 h-4 rounded-sm shadow-sm" />
               <img src="https://flagcdn.com/w40/gb.png" alt="English" className="w-6 h-4 rounded-sm shadow-sm" />
+            </div>
 
+            <div className="w-full bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] text-white">
+              <h3 className="text-lg font-semibold mb-2">Education</h3>
+              <ul className="space-y-1 text-sm text-white/80">
+                <li>Frontend Mastery – WebKing</li>
+                <li>Backend (NestJS, PostgreSQL)</li>
+                <li>Design & UX – Youtube</li>
+              </ul>
+            </div>
+
+            <div className="w-full bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] text-white">
+              <h3 className="text-lg font-semibold mb-2">Contact</h3>
+              <ul className="space-y-1 text-sm text-white/80">
+                <li>Email: boburovdev@gmail.com</li>
+                <li>Telegram: @boburovdev</li>
+                <li>Phone: +998 20 002-04-46</li>
+              </ul>
             </div>
           </div>
         </div>
       </section>
 
-      <div className="card">
-        <Image src={mardonbek} alt="Sophie Bennett" />
-        <div className="overlay">
-          <div className="info">
-            <h3>Sophie Bennett ✅</h3>
-            <p>A Product Designer focused on intuitive user experiences.</p>
-            <div className="stats">
-              <span>👤 312</span>
-              <span>💬 48</span>
-            </div>
-            <button>Follow ➕</button>
-          </div>
-        </div>
-      </div>
-
-
+      <Projects />
     </>
   );
 };
