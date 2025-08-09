@@ -6,6 +6,7 @@ import "aos/dist/aos.css";
 import { scrollPage } from "../functions/scrollUp";
 import menuIcon from "../assets/icons/menu.svg";
 import Image from "next/image";
+import { Menu } from "lucide-react";
 
 const navItems = [
   { label: "Home", pos: 0 },
@@ -45,13 +46,13 @@ const Header = () => {
 
       <div className="md:hidden flex items-center space-x-4">
         <button onClick={() => setModalOpen(!modalOpen)} className="focus:outline-none">
-          <Image src={menuIcon} alt="Menu" className="w-6 h-6" />
+          <Menu />
         </button>
       </div>
 
       {/* Mobile dropdown */}
       {modalOpen && (
-        <div className="absolute top-full mt-2 left-0 w-full rounded-b-2xl bg-white/10 backdrop-blur-xl border-t border-white/10 shadow-md md:hidden z-40">
+        <div className="absolute top-full mt-2 left-0 w-full rounded-b-2xl bg-[#1a1a1d] backdrop-blur-xl border-t border-white/10 shadow-md md:hidden z-40">
           <ul className="flex flex-col px-6 py-4 text-white text-sm font-medium space-y-4">
             {navItems.map(({ label, pos }) => (
               <li

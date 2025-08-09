@@ -33,15 +33,18 @@ const Projects = () => {
     <section id="projects" className="py-2">
       <div className="container mx-auto px-4">
 
-        <div className="flex gap-5">
-          <h1 className="w-1/2 mb-5 bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] flex items-center gap-4">
+        <div className="flex flex-col sm:flex-row gap-5">
+          {/* Left Card */}
+          <h1 className="w-full sm:w-1/2 mb-5 bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] flex items-center gap-4 text-white text-base sm:text-lg lg:text-xl font-medium">
             Every Line of Code, Every Pixel of Thought — A Project Story
           </h1>
 
-          <h1 className="w-full sm:w-2/3 lg:w-1/2 mb-5 bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] flex flex-row gap-3 ">
-            <div className="flex w-40 items-center gap-4 text-white text-xl font-semibold">
+          {/* Right Card */}
+          <div className="w-full sm:w-1/2 mb-5 bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] flex flex-col sm:flex-row sm:items-center gap-3">
+            <div className="flex items-center gap-4 text-white text-lg font-semibold">
               Join My Blog
             </div>
+
             <div className="flex gap-4 mt-2 flex-wrap">
               <a
                 href="https://t.me/yourtelegram"
@@ -65,8 +68,9 @@ const Projects = () => {
                 <Instagram size={18} /> Instagram
               </a>
             </div>
-          </h1>
+          </div>
         </div>
+
 
         <div className="mb-5 bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] flex items-center gap-4">
           <span className="text-xl font-semibold text-white w-40">⚙️ Tech Stack & Tools I Love</span>
