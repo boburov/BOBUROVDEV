@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   other: {
     "google-site-verification": "MaugEz5g-WDQQUU6ft4Q4Lf5dFcTSjwdDyJA1UKPo64",
   },
+  icons: {
+    icon: "./logo.png",
+  },
   openGraph: {
     title: "B.Shukurullo • Software Craftsman",
     url: "https://www.boburov.uz",
