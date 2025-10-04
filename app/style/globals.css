@@ -26,13 +26,13 @@ body {
 }
 
 @font-face {
-  font-family: montbold;
-  src: url(./font/montbold.ttf);
+  font-family: "montbold";
+  src: url("/font/montbold.ttf") format("truetype");
 }
 
 @font-face {
-  font-family: montmed;
-  src: url(./font/montmed.ttf);
+  font-family: "montmed";
+  src: url("/font/montmed.ttf") format("truetype");
 }
 
 .montbold {
@@ -42,6 +42,17 @@ body {
 .montmed {
   font-family: montmed;
 }
+
+.odinfoto {
+  width: 600px;
+  height: 600px;
+  background: url("/public/logo.png");
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: difference;
+}
+
+
 
 .flexing-line::after {
   width: 0%;
@@ -62,9 +73,6 @@ body {
 .odinfoto {
   width: 600px;
   height: 600px;
-  background: url("/public/logo.png");  background-size: cover;
-  background-position: center center;
-  background-blend-mode: difference;
 }
 
 .howereffec:hover {
@@ -91,8 +99,9 @@ body {
   color: white;
 }
 
-/* Typography improvements */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   @apply font-extrabold text-balance;
 }
 
@@ -100,19 +109,31 @@ p {
   @apply leading-relaxed text-[17px] text-gray-300;
 }
 
-/* Responsive text balancing (experimental) */
 .text-balance {
-  text-wrap: balance;
+  text-wrap: balance;/* Responsive text balancing (experimental) */
+
 }
 
 .font-sans {
-  font-family: 'Cera CY', sans-serif;
+  font-family: "Cera CY", sans-serif;
 }
 .clippath {
   clip-path: polygon(
-    24% 0%, 52% 2%, 70% 6%, 85% 19%, 92% 38%,
-    98% 58%, 92% 78%, 75% 89%, 50% 94%, 28% 91%,
-    12% 81%, 3% 65%, 0% 45%, 4% 25%, 15% 10%
+    24% 0%,
+    52% 2%,
+    70% 6%,
+    85% 19%,
+    92% 38%,
+    98% 58%,
+    92% 78%,
+    75% 89%,
+    50% 94%,
+    28% 91%,
+    12% 81%,
+    3% 65%,
+    0% 45%,
+    4% 25%,
+    15% 10%
   );
 }
 
@@ -136,10 +157,13 @@ p {
   height: 50%;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  
-  /* YUMSHOQ PASTDAN TEPAGA GRADIENT QILIB KO‘RINMASIN */
-  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0,0,0,0));
-  -webkit-mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0,0,0,0));
+
+  mask-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  -webkit-mask-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 1),
+    rgba(0, 0, 0, 0)
+  );
 }
 
 .info {
@@ -148,4 +172,3 @@ p {
   color: white;
   padding: 20px;
 }
-

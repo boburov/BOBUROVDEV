@@ -1,10 +1,8 @@
-import restoranB from "./assets/project_imgs/beauty_restoran.png";
-import husan_art from "./assets/project_imgs/husan_art.png";
 
 export const loyihalar = [
   {
     id: 2,
-    img: restoranB,
+    img: "restoranB",
     projectName: "Restoran",
     position: "left",
     description:
@@ -16,7 +14,7 @@ export const loyihalar = [
   },
   {
     id: 4,
-    img: husan_art,
+    img: "husan_art",
     projectName: "Husan Art",
     position: "left",
     description:

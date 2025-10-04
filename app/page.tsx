@@ -3,17 +3,16 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import ink from "./assets/profilepic.jpg";
+import ink from "@/public/file.svg";
 import Image from "next/image";
 
-import {
-  Code, Download, Plus, Rocket, VerifiedIcon,
-} from "lucide-react";
+import { Code, Download, Plus, Rocket, VerifiedIcon } from "lucide-react";
 
 import Header from "./components/Header";
-import mardonbek from '../public/mardonbek.png'
-import muhammadali from '../public/muhammadali.png'
+import mardonbek from "../public/mardonbek.png";
+import muhammadali from "../public/muhammadali.png";
 import Projects from "./components/Projects";
+
 const Home = () => {
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
@@ -39,49 +38,63 @@ const Home = () => {
     {
       img: mardonbek,
       name: "Mardonbek Khamidov",
-      description: "React va TypeScript muhandisi. Mijozlar ehtiyojini tezda anglaydi.",
-      projects: 26
+      description:
+        "React va TypeScript muhandisi. Mijozlar ehtiyojini tezda anglaydi.",
+      projects: 26,
     },
     {
       img: muhammadali,
       name: "Muhammadali Jamolov",
       description: "Next.js va UI dizayn mutaxassisi. Tajribali va samarali.",
-      projects: 18
+      projects: 18,
     },
     {
       img: ink,
       name: "Boburov Shukurullo",
-      description: "NestJS va Frontend texnologiyalar bo‘yicha kuchli fullstack dasturchi.",
-      projects: 34
-    }
+      description:
+        "NestJS va Frontend texnologiyalar bo‘yicha kuchli fullstack dasturchi.",
+      projects: 34,
+    },
   ];
 
   return (
     <>
-      <Header />
-
       <section className="container py-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-white mt-20">
-
         <div
           className="bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f]"
           data-aos="fade-up"
         >
           <div className="w-full flex gap-4 items-center">
-            <Image src={ink} alt="profile img" className="rounded-full w-16 h-16 object-cover" />
+            <img
+              src={"https://avatars.githubusercontent.com/u/137058543?v=4"}
+              alt="profile img"
+              className="rounded-full w-16 h-16 object-cover"
+            />
             <div className="h-20 flex flex-col justify-center">
               <h2 className="text-xl font-bold montbold">Boburov Shukurullo</h2>
               <p>@boburov</p>
             </div>
           </div>
-          <p className="text-xs uppercase tracking-widest text-gray-400">Full Stack Developer</p>
+          <p className="text-xs uppercase tracking-widest text-gray-400">
+            Full Stack Developer
+          </p>
           <p className="text-sm text-gray-400 montmed mb-4">
-            I build clean & functional web apps using NestJS, Next.js and TailwindCSS
+            I build clean & functional web apps using NestJS, Next.js and
+            TailwindCSS
           </p>
           <div className="grid grid-cols-7 gap-2">
             {skills.map((skill, index) => {
-              return <div key={index} className="bg-white p-1 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-                <img src={` https://skillicons.dev/icons?i=${skill.icon}`} alt="salom" />
-              </div>
+              return (
+                <div
+                  key={index}
+                  className="bg-white p-1 rounded-xl shadow-md hover:shadow-lg transition duration-300"
+                >
+                  <img
+                    src={` https://skillicons.dev/icons?i=${skill.icon}`}
+                    alt="salom"
+                  />
+                </div>
+              );
             })}
           </div>
         </div>
@@ -96,7 +109,9 @@ const Home = () => {
             <p className="text-sm text-gray-400 montmed">Yillik Tajriba</p>
           </div>
           <div className="bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl text-center w-full h-full flex flex-col items-center justify-center shadow-xl  border border-[#3a3a3f]">
-            <h3 className="text-2xl font-bold text-indigo-400 montbold">+100</h3>
+            <h3 className="text-2xl font-bold text-indigo-400 montbold">
+              +100
+            </h3>
             <p className="text-sm text-gray-400 montmed">Loyihalar</p>
           </div>
           <div className="bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl text-center w-full h-full flex flex-col items-center justify-center shadow-xl  border border-[#3a3a3f]">
@@ -115,16 +130,18 @@ const Home = () => {
           data-aos-delay="200"
         >
           <div>
-            <p className="uppercase text-gray-400 text-xs tracking-widest mb-3">Keling birga ishlaylik</p>
+            <p className="uppercase text-gray-400 text-xs tracking-widest mb-3">
+              Keling birga ishlaylik
+            </p>
             <h2 className="text-2xl font-extrabold leading-snug mb-4 text-balance montbold">
-             Work with Me
+              Work with Me
             </h2>
-
 
             <p className="text-sm text-gray-400 mb-6 montmed">
               {"We bring your ideas to life with powerful technology."}
             </p>
           </div>
+          <h1>tg: @rovixwb</h1>
           <div className="flex gap-4">
             <a
               href="/cv.pdf"
@@ -142,9 +159,7 @@ const Home = () => {
             </a>
           </div>
         </div>
-
       </section>
-
 
       <section className="container mx-auto py-5">
         <div className="flex gap-8 items-start">
@@ -167,7 +182,10 @@ const Home = () => {
                 <div className="absolute bottom-5 left-5 right-5 z-20 text-white space-y-2">
                   <h2 className="text-base font-semibold flex items-center gap-2 break-words">
                     {guy.name}
-                    <VerifiedIcon className="w-5 h-5 fill-white stroke-black" strokeWidth={1} />
+                    <VerifiedIcon
+                      className="w-5 h-5 fill-white stroke-black"
+                      strokeWidth={1}
+                    />
                   </h2>
 
                   <p className="text-xs text-white/80 leading-normal line-clamp-3">
@@ -192,8 +210,16 @@ const Home = () => {
           <div className="w-[30%] hidden md:flex flex-col gap-4">
             <div className="w-full bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] flex items-center gap-4">
               Languages |
-              <img src="https://flagcdn.com/w40/uz.png" alt="Oʻzbekcha" className="w-6 h-4 rounded-sm shadow-sm" />
-              <img src="https://flagcdn.com/w40/gb.png" alt="English" className="w-6 h-4 rounded-sm shadow-sm" />
+              <img
+                src="https://flagcdn.com/w40/uz.png"
+                alt="Oʻzbekcha"
+                className="w-6 h-4 rounded-sm shadow-sm"
+              />
+              <img
+                src="https://flagcdn.com/w40/gb.png"
+                alt="English"
+                className="w-6 h-4 rounded-sm shadow-sm"
+              />
             </div>
 
             <div className="w-full bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] text-white">

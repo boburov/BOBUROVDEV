@@ -1,3 +1,4 @@
 export const scrollPage = (pixels) => {
-    window.scrollBy({ top: pixels, behavior: "smooth" });
+  window.scrollBy({ top: pixels, behavior: "smooth" });
 };
+

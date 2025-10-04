@@ -1,21 +1,19 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import Header from "./components/Header";
-import sdfsf from '../public/icons/logo2.png'
+import "@/app/style/globals.css";
 
 export const metadata: Metadata = {
-  title: "B.Shukurullo • Fullstack JavaScript Developer",
+  title: "Boburov's Contact Page",
   description:
     "Portfolio of Shukurullo Boburov – Fullstack JavaScript developer specializing in Next.js, NestJS, React, and modern web technologies.",
   other: {
     "google-site-verification": "MaugEz5g-WDQQUU6ft4Q4Lf5dFcTSjwdDyJA1UKPo64",
   },
   icons: {
-    icon: "./boburov.png",
-    apple: "./boburov.png",
+    icon: "./boburov.png", // Favicon uchun to‘g‘ri path
+    apple: "./boburov.png", // Apple touch icon
   },
   openGraph: {
-    title: "B.Shukurullo • Fullstack JavaScript Developer",
+    title: "Boburov's Contact Page",
     description:
       "Portfolio of Shukurullo Boburov – Fullstack JavaScript developer specializing in Next.js, NestJS, React, and modern web technologies.",
     url: "https://www.boburov.uz",
@@ -23,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "./boburov.png",
+        url: "./boburov.png", // OG image
         width: 1200,
         height: 630,
         alt: "Shukurullo Boburov Portfolio",
@@ -32,10 +30,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "B.Shukurullo • Fullstack JavaScript Developer",
+    title: "Boburov's Contact Page",
     description:
       "Portfolio of Shukurullo Boburov – Fullstack JavaScript developer specializing in Next.js, NestJS, React, and modern web technologies.",
-    images: ["./boburov.png"], // png qilib to‘g‘riladim
+    images: ["./boburov.png"], // Twitter image
   },
 };
 
@@ -46,10 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>
-        <Header />
-        {children}
-      </body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -3,9 +3,8 @@
 import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { ExternalLink, Github, Instagram, MessageCircleCode, VerifiedIcon, Youtube } from "lucide-react";
+import { ExternalLink, Github, VerifiedIcon } from "lucide-react";
 import { loyihalar } from "../data";
-import Image from "next/image";
 
 const Projects = () => {
   useEffect(() => {
@@ -32,55 +31,43 @@ const Projects = () => {
   return (
     <section id="projects" className="py-2">
       <div className="container mx-auto px-4">
-
         <div className="flex flex-col sm:flex-row gap-5">
           {/* Left Card */}
           <h1 className="w-full sm:w-1/2 mb-5 bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] flex items-center gap-4 text-white text-base sm:text-lg lg:text-xl font-medium">
-            Every Line of Code, Every Pixel of Thought — A Project Story
+            Crafting Code, Designing Ideas — My Project Showcase
           </h1>
 
           {/* Right Card */}
           <div className="w-full sm:w-1/2 mb-5 bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] flex flex-col sm:flex-row sm:items-center gap-3">
             <div className="flex items-center gap-4 text-white text-lg font-semibold">
-              Join My Blog
-            </div>
-
-            <div className="flex gap-4 mt-2 flex-wrap">
-              <a
-                href="https://t.me/yourtelegram"
-                target="_blank"
-                className="hover:text-indigo-400 text-gray-300 transition flex items-center gap-2"
-              >
-                <MessageCircleCode size={18} /> Telegram
-              </a>
-              <a
-                href="https://youtube.com/yourchannel"
-                target="_blank"
-                className="hover:text-red-500 text-gray-300 transition flex items-center gap-2"
-              >
-                <Youtube size={18} /> YouTube
-              </a>
-              <a
-                href="https://instagram.com/yourhandle"
-                target="_blank"
-                className="hover:text-pink-400 text-gray-300 transition flex items-center gap-2"
-              >
-                <Instagram size={18} /> Instagram
+              <a href="/blog" className="hover:text-indigo-400 transition">
+                Visit My Blog
               </a>
             </div>
           </div>
         </div>
 
+        <div className="mb-5 bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] flex flex-col sm:flex-row items-center gap-4 flex-wrap">
+          <span className="text-xl font-semibold text-white min-w-fit">
+            ⚙️ Tech Stack & Tools I Love
+          </span>
 
-        <div className="mb-5 bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] flex items-center gap-4">
-          <span className="text-xl font-semibold text-white w-40">⚙️ Tech Stack & Tools I Love</span>
-
-          <span className="text-5xl">|</span>
-          {skills.map((skill, index) => {
-            return <div key={index} className="bg-white p-1 rounded-xl shadow-md hover:shadow-lg transition duration-300">
-              <img src={` https://skillicons.dev/icons?i=${skill.icon}`} alt="salom" />
-            </div>
-          })}
+          <div className="flex flex-wrap gap-3">
+            {skills.map((skill, index) => {
+              return (
+                <div
+                  key={index}
+                  className="bg-white p-1 rounded-xl shadow-md hover:shadow-lg transition duration-300"
+                >
+                  <img
+                    src={`https://skillicons.dev/icons?i=${skill.icon}`}
+                    alt={skill.name}
+                    className="w-10 h-10"
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -89,20 +76,22 @@ const Projects = () => {
               key={project.id}
               className="relative h-[420px] rounded-2xl overflow-hidden group shadow-2xl border border-white/10 hover:shadow-indigo-800/20 transition-shadow duration-500"
               data-aos={i % 2 === 0 ? "fade-up-right" : "fade-up-left"}
-            >              <Image
+            >
+              <img
                 src={project.img}
                 alt={project.projectName}
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                fill
               />
               <div className="absolute inset-0 z-10 backdrop-blur-md transition-opacity duration-700 opacity-100 group-hover:opacity-0" />
 
               <div className="absolute inset-0 z-20 bg-gradient-to-t from-black/80 via-black/60 to-black/20 transition-all duration-700">
                 <div className="absolute bottom-0 p-5 w-full flex flex-col justify-end transform group-hover:opacity-0 transition-all duration-700 ease-out">
-
                   <h2 className="text-2xl font-bold text-white mb-2 flex items-center gap-2 drop-shadow">
                     {project.projectName}
-                    <VerifiedIcon className="w-5 h-5 fill-white stroke-black" strokeWidth={1} />
+                    <VerifiedIcon
+                      className="w-5 h-5 fill-white stroke-black"
+                      strokeWidth={1}
+                    />
                   </h2>
 
                   <p className="text-sm text-white/80 mb-4 line-clamp-3">
@@ -140,7 +129,6 @@ const Projects = () => {
                   </div>
                 </div>
               </div>
-
             </div>
           ))}
         </div>
