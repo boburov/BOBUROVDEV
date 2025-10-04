@@ -8,7 +8,6 @@ import Image from "next/image";
 
 import { Code, Download, Plus, Rocket, VerifiedIcon } from "lucide-react";
 
-import Header from "./components/Header";
 import mardonbek from "../public/mardonbek.png";
 import muhammadali from "../public/muhammadali.png";
 import Projects from "./components/Projects";

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./components/Header";
-import sdfsf from '../public/icons/logo2.png'
 
 export const metadata: Metadata = {
   title: "B.Shukurullo • Fullstack JavaScript Developer",
