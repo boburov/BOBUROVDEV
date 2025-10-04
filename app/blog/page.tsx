@@ -20,7 +20,7 @@ type UIMessage = {
 
 export default function BlogPage() {
   const [messages, setMessages] = useState<UIMessage[]>([]);
-  const token = process.env.NEXT_PUBLIC_BLOG_TOKEN!;
+  const token = "7595720619:AAHZhscftej0RLr0bE7P59n6POp6JS9eeK8";
 
   useEffect(() => {
     const fetchMessages = async () => {

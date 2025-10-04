@@ -32,8 +32,8 @@ export default function ContactPage() {
     setLoading(true);
     setStatus("");
 
-    const token = process.env.NEXT_PUBLIC_TELEGRAM_BOT_TOKEN!;
-    const chatId = process.env.NEXT_PUBLIC_TELEGRAM_CHAT_ID!;
+    const token = "8454113560:AAHdo31TghOYIwzGBdtM4oyNXRy0wjtV7x0";
+    const chatId = 6846125638;
 
     const text = `
 <b>📩 Yangi xabar keldi!</b>
