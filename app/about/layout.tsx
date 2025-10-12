@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "@/app/style/globals.css";
 
 export const metadata: Metadata = {
-  title: "Shukurullo Boburov | Fullstack JavaScript Developer (Next.js, NestJS, React)",
+  title: "Shukurullo Boburov | Fullstack JavaScript Developer",
   description:
-    "Official portfolio of Shukurullo Boburov – Fullstack JavaScript developer from Uzbekistan. Specialized in Next.js, NestJS, React.js, Prisma, PostgreSQL, TailwindCSS, and Telegram bot development. Explore my projects, skills, and experience in building scalable modern web applications.",
+    "🚀 Official portfolio of Shukurullo Boburov – Fullstack JavaScript developer from Uzbekistan. Specialized in Next.js, NestJS, React.js, Prisma, PostgreSQL, TailwindCSS, and Telegram bot development.",
   keywords: [
     "Shukurullo Boburov",
     "Boburov developer",
@@ -15,7 +15,6 @@ export const metadata: Metadata = {
     "PostgreSQL Prisma",
     "Telegram bot developer",
     "Uzbekistan programmer",
-    "Web developer portfolio",
     "Frontend developer Uzbekistan",
     "Backend developer Uzbekistan",
     "Docker developer",
@@ -31,12 +30,12 @@ export const metadata: Metadata = {
     canonical: "https://www.boburov.uz",
   },
   openGraph: {
-    title: "Shukurullo Boburov – Fullstack JavaScript Developer",
+    title: "👨‍💻 Shukurullo Boburov – Fullstack JavaScript Developer",
     description:
-      "Portfolio of Shukurullo Boburov, Fullstack JavaScript developer specializing in Next.js, NestJS, React, TailwindCSS, PostgreSQL, and modern web apps. Discover my projects, skills, and career journey.",
+      "Portfolio of Shukurullo Boburov, Fullstack JavaScript developer specializing in Next.js, NestJS, React, TailwindCSS, PostgreSQL, and modern web apps.",
     url: "https://www.boburov.uz",
     siteName: "boburov.uz",
-    type: "website",
+    type: "profile",
     images: [
       {
         url: "/icons/logo.jpg",
@@ -49,22 +48,14 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     site: "@rovixwb",
-    title: "Shukurullo Boburov – Fullstack Developer",
+    title: "Shukurullo Boburov – Fullstack Developer 🧠",
     description:
-      "Explore the portfolio of Shukurullo Boburov, Fullstack JavaScript developer skilled in Next.js, NestJS, React, Prisma, PostgreSQL, and Telegram bots.",
+      "Explore the creative journey of Fullstack JavaScript Developer Shukurullo Boburov – building scalable modern apps with Next.js & NestJS.",
     images: ["/icons/logo.jpg"],
   },
-  category: "technology",
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-snippet": -1,
-      "max-image-preview": "large",
-      "max-video-preview": -1,
-    },
   },
 };
 

@@ -3,10 +3,10 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import ink from "@/public/file.svg";
+import ink from "@/public/boburov.png";
 import Image from "next/image";
 
-import { Code, Download, Plus, Rocket, VerifiedIcon } from "lucide-react";
+import { Code, Download, Github, Linkedin, Plus, Rocket, VerifiedIcon } from "lucide-react";
 
 import mardonbek from "../public/mardonbek.png";
 import muhammadali from "../public/muhammadali.png";
@@ -109,7 +109,7 @@ const Home = () => {
           </div>
           <div className="bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl text-center w-full h-full flex flex-col items-center justify-center shadow-xl  border border-[#3a3a3f]">
             <h3 className="text-2xl font-bold text-indigo-400 montbold">
-              +100
+              +10
             </h3>
             <p className="text-sm text-gray-400 montmed">Loyihalar</p>
           </div>
@@ -143,7 +143,7 @@ const Home = () => {
           <h1>tg: @rovixwb</h1>
           <div className="flex gap-4">
             <a
-              href="/cv.pdf"
+              href="/cv.jpg"
               download
               className="bg-indigo-500 hover:bg-indigo-600 px-4 py-2 rounded-full text-sm font-medium transition montmed flex items-center gap-2 text-white"
             >
@@ -151,7 +151,7 @@ const Home = () => {
               Download CV
             </a>
             <a
-              href="#contact"
+              href="/contact"
               className="border border-gray-600 hover:border-indigo-400 px-4 py-2 rounded-full text-sm font-medium transition montmed text-white"
             >
               Talk with Me
@@ -179,8 +179,8 @@ const Home = () => {
                 </div>
 
                 <div className="absolute bottom-5 left-5 right-5 z-20 text-white space-y-2">
-                  <h2 className="text-base font-semibold flex items-center gap-2 break-words">
-                    {guy.name}
+                  <h2 className="text-sm font-semibold flex items-center gap-2">
+                    <span className="w-40 truncate">{guy.name}</span>
                     <VerifiedIcon
                       className="w-5 h-5 fill-white stroke-black"
                       strokeWidth={1}
@@ -243,6 +243,27 @@ const Home = () => {
       </section>
 
       <Projects />
+
+      <footer className="mt-20 py-6 text-center text-sm text-gray-500 border-t border-[#2f2f33]">
+        <p>
+          © {new Date().getFullYear()} Boburov Shukurullo. Built with ❤️ using
+          Next.js & TailwindCSS.
+        </p>
+        <div className="flex justify-center gap-3 mt-3">
+          <a
+            href="https://github.com/boburov"
+            className="hover:text-indigo-400 transition"
+          >
+            <Github size={18} />
+          </a>
+          <a
+            href="https://linkedin.com/in/boburovdev"
+            className="hover:text-indigo-400 transition"
+          >
+            <Linkedin size={18} />
+          </a>
+        </div>
+      </footer>
     </>
   );
 };
