@@ -263,8 +263,25 @@ const Home = () => {
                   <span className="text-white/60">Phone</span>
                   <span className="font-medium">+998 20 002-04-46</span>
                 </li>
-              </ul>
-              <button className="w-full mt-3 rounded-xl py-3 bg-purple-600 text-xl font-bold">Connect</button>
+              </ul><button
+                className="
+    w-full mt-6 py-3
+    rounded-full
+    bg-gradient-to-r from-purple-600/90 to-violet-600/90
+    text-sm font-semibold text-white
+    shadow-lg shadow-purple-500/30
+    border border-white/10
+    transition-all duration-300
+    hover:from-purple-500 hover:to-violet-500
+    hover:shadow-purple-500/50
+    hover:scale-[1.02]
+    active:scale-[0.98]
+    focus:outline-none focus:ring-2 focus:ring-purple-500/50
+  "
+              >
+                Connect
+              </button>
+
             </div>
           </div>
         </div>
