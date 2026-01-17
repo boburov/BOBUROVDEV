@@ -126,7 +126,7 @@ function NavItem({ label }: { label: string }) {
 function TalkButton({ fullWidth = false }: { fullWidth?: boolean }) {
   return (
     <Link
-      href="https://mail.google.com/mail/?view=cm&fs=1&to=info@boburov.uz&su=Work%20Inquiry&body=Hello%20Boburov,%0A%0AI%20would%20like%20to%20work%20with%20you."
+      href="https://t.me/rovixwb?text=Salom%20Boburov!%20Men%20siz%20bilan%20hamkorlik%20qilmoqchiman.%20%F0%9F%94%A5"
       target="_blank"
       rel="noopener noreferrer"
       className={`inline-flex items-center justify-center rounded-full px-5 py-2.5 text-xs font-bold uppercase tracking-wide transition active:scale-[0.98]

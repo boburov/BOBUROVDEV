@@ -1,16 +1,19 @@
 "use client";
 
-import { useEffect } from "react";
+
+import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
-import { ExternalLink, Github, Sparkles } from "lucide-react";
+import { ExternalLink, Github, Sparkles, X } from "lucide-react";
 import { loyihalar } from "../data";
 
 const Projects = () => {
   useEffect(() => {
     AOS.init({ duration: 800, once: true });
   }, []);
+  const [preview, setPreview] = useState<{ url: string; title: string } | null>(null);
+  const [iframeError, setIframeError] = useState(false);
 
   const skills = [
     { name: "HTML", icon: "html" },
@@ -28,6 +31,13 @@ const Projects = () => {
     { name: "Figma", icon: "figma" },
     { name: "Docker", icon: "docker" },
   ];
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setPreview(null);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
 
   return (
     <section id="projects" className="container py-12">
@@ -113,6 +123,87 @@ const Projects = () => {
         </div>
       </div>
 
+
+      {preview && (
+        <div className="fixed inset-0 z-[999] flex items-center justify-center p-4">
+          {/* Backdrop */}
+          <button
+            aria-label="Close preview"
+            onClick={() => setPreview(null)}
+            className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+            type="button"
+          />
+
+          {/* Modal */}
+          <div className="relative w-full max-w-6xl overflow-hidden rounded-3xl border border-white/10 bg-neutral-950 shadow-2xl">
+            {/* Header */}
+            <div className="flex items-center justify-between gap-3 border-b border-white/10 bg-white/5 px-4 py-3">
+              <div className="min-w-0">
+                <p className="text-sm font-semibold text-white truncate">
+                  {preview.title}
+                </p>
+                <p className="text-xs text-white/50 truncate">{preview.url}</p>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <a
+                  href={preview.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold text-white hover:bg-white/10 transition"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Open new tab
+                </a>
+
+                <button
+                  type="button"
+                  onClick={() => setPreview(null)}
+                  className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/5 p-2 text-white hover:bg-white/10 transition"
+                  aria-label="Close"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+            </div>
+
+            {/* Body */}
+            <div className="relative h-[75vh] bg-black">
+              {!iframeError ? (
+                <iframe
+                  src={preview.url}
+                  className="w-full h-full"
+                  onError={() => setIframeError(true)}
+                // sandbox’ni qattiq qo‘ysang ba’zi UI buziladi, shu default ok
+                />
+              ) : (
+                <div className="h-full w-full flex flex-col items-center justify-center text-center p-8">
+                  <p className="text-lg font-bold text-white">
+                    Iframe’da ochilmadi 😅
+                  </p>
+                  <p className="mt-2 text-sm text-white/60 max-w-xl">
+                    Bu sayt iframe’ni bloklagan bo‘lishi mumkin (X-Frame-Options / CSP).
+                    Pastdagi tugma orqali yangi oynada oching.
+                  </p>
+
+                  <a
+                    href={preview.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-5 inline-flex items-center gap-2 rounded-full bg-purple-500 px-5 py-2.5 text-sm font-semibold text-white hover:bg-purple-600 transition"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Open new tab
+                  </a>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+
+
+
       {/* Projects grid */}
       <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {loyihalar.map((project, i) => (
@@ -143,15 +234,18 @@ const Projects = () => {
                   <Github className="w-4 h-4" />
                   Code
                 </a>
-                <a
-                  href={project.netlify}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIframeError(false);
+                    setPreview({ url: project.netlify, title: project.projectName });
+                  }}
                   className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-semibold text-white hover:bg-white/15 transition"
                 >
                   <ExternalLink className="w-4 h-4" />
                   Live
-                </a>
+                </button>
+
               </div>
             </div>
 
