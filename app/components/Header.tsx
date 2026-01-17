@@ -3,111 +3,137 @@
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { scrollPage } from "../functions/scrollUp";
-import { Menu } from "lucide-react";
 import Link from "next/link";
-import { link } from "fs";
+import { Menu, X } from "lucide-react";
+import { scrollPage } from "../functions/scrollUp";
 
 const navItems = [
   { label: "Home", pos: 0, link: "/" },
-  { label: "About", pos: 0, link: "about" },
-  { label: "Projects", pos: 0, link: "projects" },
-  { label: "Skills", pos: 0, link: "ability" },
-  { label: "Blog", pos: 0, link: "blog" },
-  { label: "Contact", pos: 0, link: "contact" },
+  { label: "About", pos: 0, link: "#about" },
+  { label: "Projects", pos: 0, link: "#projects" },
+  { label: "Skills", pos: 0, link: "#ability" },
+  { label: "Blog", pos: 0, link: "/blog" },
+  { label: "Contact", pos: 0, link: "/contact" },
 ];
 
-const Header = () => {
-  const [modalOpen, setModalOpen] = useState(false);
+export default function Header() {
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     AOS.init({ duration: 600, once: true });
   }, []);
 
-  const scrollToPosition = (pos: number) => {
-    scrollPage(pos);
-    setModalOpen(false);
+  const handleNav = (item: (typeof navItems)[number]) => {
+    // If it's a hash link, scroll via your function
+    if (item.link.startsWith("#")) {
+      scrollPage(item.pos);
+      setOpen(false);
+      return;
+    }
+
+    // normal route link - just close menu
+    setOpen(false);
   };
 
   return (
-    <header className="mt-3 container bg-gradient-to-t from-[#2b2b30]/90 via-[#2b2b30]/80 to-[#2b2b30]/50 backdrop-blur-xl border border-white/10 rounded-2xl px-6 py-3 shadow-lg flex items-center justify-between">
-      <Link href={"/"}>
-        <h1
-          data-aos="fade-right"
-          className="text-xl md:text-2xl font-bold text-white tracking-tight"
-        >
-          <span className="text-indigo-400">BOBUROV</span>.DEV
-        </h1>
-      </Link>
-      <nav className="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-200">
-        {navItems.map(({ label, pos, link }, index) => (
-          <Link key={index} href={`${link === undefined ? "" : link}`}>
-            <NavItem
-              key={label}
-              label={label}
-              scrollTo={() => scrollToPosition(pos)}
-            />
-          </Link>
-        ))}
-        <TalkButton />
-      </nav>
+    <header className="sticky top-3 z-50">
+      <div className="container">
+        <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl">
+          {/* top subtle gradient */}
+          <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-purple-500/10 via-transparent to-transparent" />
 
-      <div className="md:hidden flex items-center space-x-4">
-        <button
-          onClick={() => setModalOpen(!modalOpen)}
-          className="focus:outline-none"
-        >
-          <Menu />
-        </button>
-      </div>
-
-      {/* Mobile dropdown */}
-      {modalOpen && (
-        <div className="absolute top-full mt-2 left-0 w-full rounded-b-2xl bg-[#1a1a1d] backdrop-blur-xl border-t border-white/10 shadow-md md:hidden z-40">
-          <ul className="flex flex-col px-6 py-4 text-white text-sm font-medium space-y-4">
-            {navItems.map(({ label, pos }) => (
-              <li
-                key={label}
-                onClick={() => scrollToPosition(pos)}
-                className="cursor-pointer uppercase tracking-wide hover:text-indigo-400 transition"
+          <div className="relative flex items-center justify-between px-5 py-3">
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-2">
+              <h1
+                data-aos="fade-right"
+                className="text-xl md:text-2xl font-extrabold tracking-tight text-white"
               >
-                {label}
-              </li>
-            ))}
-            <li>
-              <TalkButton fullWidth />
-            </li>
-          </ul>
+                <span className="text-purple-400">BOBUROV</span>.DEV
+              </h1>
+              <span className="hidden sm:inline-flex rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-[10px] uppercase tracking-widest text-white/60">
+                Portfolio
+              </span>
+            </Link>
+
+            {/* Desktop Nav */}
+            <nav className="hidden md:flex items-center gap-2">
+              {navItems.map((item) => (
+                <Link
+                  key={item.label}
+                  href={item.link}
+                  onClick={() => handleNav(item)}
+                  className="px-3 py-2"
+                >
+                  <NavItem label={item.label} />
+                </Link>
+              ))}
+
+              <TalkButton />
+            </nav>
+
+            {/* Mobile button */}
+            <button
+              onClick={() => setOpen((v) => !v)}
+              className="md:hidden inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/5 p-2 text-white hover:bg-white/10 transition"
+              aria-label="Open menu"
+            >
+              {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            </button>
+          </div>
+
+          {/* Mobile dropdown */}
+          <div
+            className={`md:hidden overflow-hidden transition-[max-height,opacity] duration-300 ${open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+              }`}
+          >
+            <div className="border-t border-white/10 px-5 py-4">
+              <ul className="flex flex-col gap-2">
+                {navItems.map((item) => (
+                  <li key={item.label}>
+                    <Link
+                      href={item.link}
+                      onClick={() => handleNav(item)}
+                      className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm font-semibold text-white/85 hover:bg-white/10 transition"
+                    >
+                      <span className="uppercase tracking-wide">{item.label}</span>
+                      <span className="text-xs text-white/40">↗</span>
+                    </Link>
+                  </li>
+                ))}
+
+                <li className="pt-2">
+                  <TalkButton fullWidth />
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      )}
+      </div>
     </header>
   );
-};
+}
 
-const NavItem = ({
-  label,
-  scrollTo,
-}: {
-  label: string;
-  scrollTo: () => void;
-}) => (
-  <span
-    onClick={scrollTo}
-    className="cursor-pointer relative group uppercase tracking-wide hover:text-indigo-400 transition"
-  >
-    {label}
-    <span className="absolute left-0 bottom-0 h-[1.5px] w-0 bg-indigo-400 group-hover:w-full transition-all duration-300 rounded-full"></span>
-  </span>
-);
+function NavItem({ label }: { label: string }) {
+  return (
+    <span className="relative group uppercase tracking-wide text-xs font-semibold text-white/75 hover:text-purple-300 transition">
+      {label}
+      <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-purple-400 group-hover:w-full transition-all duration-300 rounded-full" />
+    </span>
+  );
+}
 
-const TalkButton = ({ fullWidth = false }: { fullWidth?: boolean }) => (
-  <button
-    className={`uppercase tracking-wide px-5 py-2 border border-indigo-400 text-indigo-300 hover:bg-indigo-400 hover:text-white transition rounded-full ${
-      fullWidth ? "w-full mt-2" : ""
-    }`}
-  >
-    Work with Me
-  </button>
-);
-
-export default Header;
+function TalkButton({ fullWidth = false }: { fullWidth?: boolean }) {
+  return (
+    <Link
+      href="https://mail.google.com/mail/?view=cm&fs=1&to=info@boburov.uz&su=Work%20Inquiry&body=Hello%20Boburov,%0A%0AI%20would%20like%20to%20work%20with%20you."
+      target="_blank"
+      rel="noopener noreferrer"
+      className={`inline-flex items-center justify-center rounded-full px-5 py-2.5 text-xs font-bold uppercase tracking-wide transition active:scale-[0.98]
+      border border-purple-400/60 bg-purple-500/10 text-purple-200 hover:bg-purple-500/20 ${fullWidth ? "w-full" : "ml-2"
+        }`}
+    >
+      Work with Me
+    </Link>
+  );
+}
