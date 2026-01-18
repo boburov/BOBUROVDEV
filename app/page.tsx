@@ -51,6 +51,8 @@ const Home = () => {
 
     // Languages you included
     { name: "Python", icon: "python" },
+    { name: "Ruby", icon: "ruby" },
+    { name: "Ruby on Rails", icon: "rails" },
     { name: "Dart", icon: "dart" },
     { name: "Flutter", icon: "flutter" },
   ];
