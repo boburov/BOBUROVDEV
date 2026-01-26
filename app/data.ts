@@ -1,27 +1,15 @@
+import sevenedu from "../assets/sevenedu.png"
 
 export const loyihalar = [
   {
     id: 2,
-    img: "restoranB",
-    projectName: "Restoran",
-    position: "left",
+    img: sevenedu,
+    projectName: "sevenedu",
     description:
-      "Restoran website is an online platform that site users can buying foods and drinks and called  this project is fast. ",
-    usingLanguage: ["react", "tailwind"],
+      "Sevenedu — course platform which inculdes 1k users.",
+    usingLanguage: ["nextjs", "nestjs", "tailwind", "redis"],
     type: "project",
-    gitHb: "https://github.com/Boburov-Shukurillo/Tic Tac Toe",
-    netlify: "https://restoran-site.netlify.app/",
-  },
-  {
-    id: 4,
-    img: "husan_art",
-    projectName: "Husan Art",
-    position: "left",
-    description:
-      "Restoran website is an online platform that site users can buying foods and drinks and called  this project is fast. ",
-    usingLanguage: ["react", "tailwind"],
-    type: "project",
-    gitHb: "https://github.com/Boburov-Shukurillo/husan-art",
-    netlify: "https://husan-art.netlify.app/",
-  },
+    gitHb: "https://github.com/boburov",
+    netlify: "https://sevenedu.org",
+  }
 ];
