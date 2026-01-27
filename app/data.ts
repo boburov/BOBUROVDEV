@@ -1,4 +1,5 @@
 import sevenedu from "../assets/sevenedu.png"
+import primeprint from "../assets/primeprint.png"
 
 export const loyihalar = [
   {
@@ -11,5 +12,16 @@ export const loyihalar = [
     type: "project",
     gitHb: "https://github.com/boburov",
     netlify: "https://sevenedu.org",
+  },
+    {
+    id: 2,
+    img: primeprint,
+    projectName: "primeprint",
+    description:
+      "Primeprint — book printer company website.",
+    usingLanguage: ["nextjs", "tailwind"],
+    type: "project",
+    gitHb: "https://github.com/boburov",
+    netlify: "https://prime-print.uz",
   }
 ];

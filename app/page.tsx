@@ -294,7 +294,7 @@ const Home = () => {
 
 
                 <div className="absolute bottom-2 left-0 right-0 h-48 z-10 pointer-events-none">
-                  <div className="w-[94%] mx-auto h-full rounded-xl bg-gradient-to-t from-[#2b2b30]/90 via-[#2b2b30]/80 to-[#2b2b30]/50 backdrop-blur-xl border-b-2 border-x-2 border-white/10" />
+                  <div className="w-[94%] mx-auto h-full rounded-xl bg-gradient-to-t from-[#5014c81a] to-[#7832ff26] backdrop-blur-3xl border-b-2 border-x-2 border-white/10" />
                 </div>
 
                 <div className="absolute bottom-5 left-5 right-5 z-20 text-white space-y-2">
@@ -326,7 +326,7 @@ const Home = () => {
           </div>
 
           <div className="w-[30%] hidden md:flex flex-col gap-4">
-            <div className="w-full bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] flex items-center gap-4">
+            <div className="w-full bg-gradient-to-b from-[#7832ff26] to-[#5014c81a] rounded-2xl p-5 shadow-xl border border-[#7832ff26] flex items-center gap-4">
               Languages |
               <img
                 src="https://flagcdn.com/w40/uz.png"
@@ -340,7 +340,7 @@ const Home = () => {
               />
             </div>
 
-            <div className="w-full bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] text-white">
+            <div className="w-full bg-gradient-to-b from-[#7832ff26] to-[#5014c81a] rounded-2xl p-5 shadow-xl border border-[#7832ff26] text-white">
               <h3 className="text-lg font-semibold mb-2">Education</h3>
               <ul className="space-y-1 text-sm text-white/80">
                 <li>Frontend Mastery – WebKing</li>
@@ -349,7 +349,7 @@ const Home = () => {
               </ul>
             </div>
 
-            <div className="w-full bg-[#2b2b30]/80 backdrop-blur-md rounded-2xl p-5 shadow-xl border border-[#3a3a3f] text-white">
+            <div className="w-full bg-gradient-to-b from-[#7832ff26] to-[#5014c81a] rounded-2xl p-5 shadow-xl border border-[#7832ff26] text-white">
               <h3 className="text-lg font-semibold mb-2">Contact</h3>
               <ul className="space-y-1 text-sm text-white/80">
                 <li>Email: boburovdev@gmail.com</li>
