@@ -4,7 +4,7 @@ import Projects from "../components/Projects";
 
 const ProjectsPage = () => {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-[#1a1a1d] to-[#2b2b30] text-white px-6 py-12">
+    <main className="min-h-screen text-white px-6 py-12">
       <div className="max-w-6xl mx-auto">
         {/* Title */}
         <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">

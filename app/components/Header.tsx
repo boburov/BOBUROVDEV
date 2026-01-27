@@ -9,11 +9,10 @@ import { scrollPage } from "../functions/scrollUp";
 
 const navItems = [
   { label: "Home", pos: 0, link: "/" },
-  { label: "About", pos: 0, link: "#about" },
-  { label: "Projects", pos: 0, link: "#projects" },
-  { label: "Skills", pos: 0, link: "#ability" },
-  { label: "Blog", pos: 0, link: "/blog" },
-  { label: "Contact", pos: 0, link: "/contact" },
+  { label: "About", pos: 0, link: "about" },
+  { label: "Projects", pos: 0, link: "projects" },
+  { label: "Blog", pos: 0, link: "blog" },
+  { label: "Contact", pos: 0, link: "contact" },
 ];
 
 export default function Header() {
@@ -24,23 +23,20 @@ export default function Header() {
   }, []);
 
   const handleNav = (item: (typeof navItems)[number]) => {
-    // If it's a hash link, scroll via your function
     if (item.link.startsWith("#")) {
       scrollPage(item.pos);
       setOpen(false);
       return;
     }
-
-    // normal route link - just close menu
     setOpen(false);
   };
 
   return (
     <header className="sticky top-3 z-50">
       <div className="container">
-        <div className="relative rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl">
+        <div className="relative rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-2xl">
           {/* top subtle gradient */}
-          <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-purple-500/10 via-transparent to-transparent" />
+          <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-b from-purple-500/10 via-transparent to-transparent" />
 
           <div className="relative flex items-center justify-between px-5 py-3">
             {/* Logo */}
@@ -129,9 +125,7 @@ function TalkButton({ fullWidth = false }: { fullWidth?: boolean }) {
       href="https://t.me/rovixwb?text=Salom%20Boburov!%20Men%20siz%20bilan%20hamkorlik%20qilmoqchiman.%20%F0%9F%94%A5"
       target="_blank"
       rel="noopener noreferrer"
-      className={`inline-flex items-center justify-center rounded-full px-5 py-2.5 text-xs font-bold uppercase tracking-wide transition active:scale-[0.98]
-      border border-purple-400/60 bg-purple-500/10 text-purple-200 hover:bg-purple-500/20 ${fullWidth ? "w-full" : "ml-2"
-        }`}
+      className={`btn-primary ${fullWidth ? "w-full justify-center" : "ml-2"}`}
     >
       Work with Me
     </Link>

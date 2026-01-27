@@ -82,7 +82,6 @@ ${form.message}
     <main
       className="min-h-screen flex items-center justify-center p-6"
       style={{
-        background: "linear-gradient(145deg, #1a1a1d, #2b2b30)",
         fontFamily: '"Cera CY", sans-serif',
         color: "#fff",
       }}

@@ -125,7 +125,7 @@ export default function BlogPage() {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-[#1a1a1d] to-[#2b2b30] text-white p-6">
+      <div className="min-h-screen text-white p-6">
         <h1 className="text-4xl font-extrabold text-center mb-12 tracking-wide">
           {`Boburov's Blog`}
         </h1>

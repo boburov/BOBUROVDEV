@@ -229,7 +229,7 @@ const Projects = () => {
                   href={project.gitHb}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-semibold text-white hover:bg-white/15 transition"
+                  className="btn-secondary px-3 py-2 text-xs"
                 >
                   <Github className="w-4 h-4" />
                   Code
@@ -240,7 +240,7 @@ const Projects = () => {
                     setIframeError(false);
                     setPreview({ url: project.netlify, title: project.projectName });
                   }}
-                  className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/10 px-3 py-2 text-xs font-semibold text-white hover:bg-white/15 transition"
+                  className="btn-secondary px-3 py-2 text-xs"
                 >
                   <ExternalLink className="w-4 h-4" />
                   Live
@@ -276,7 +276,7 @@ const Projects = () => {
                   href={project.gitHb}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold text-white hover:bg-white/15 transition"
+                  className="flex-1 btn-secondary justify-center"
                 >
                   <Github className="w-4 h-4" />
                   Code
@@ -285,7 +285,7 @@ const Projects = () => {
                   href={project.netlify}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold text-white hover:bg-white/15 transition"
+                  className="flex-1 btn-secondary justify-center"
                 >
                   <ExternalLink className="w-4 h-4" />
                   Live

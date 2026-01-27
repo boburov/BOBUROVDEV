@@ -41,7 +41,6 @@ const Home = () => {
     // DevOps / Tools
     { name: "Git", icon: "git" },
     { name: "GitHub", icon: "github" },
-    { name: "npm", icon: "npm" },
     { name: "Docker", icon: "docker" },
     { name: "Netlify", icon: "netlify" },
     { name: "AWS S3", icon: "aws" },
@@ -132,7 +131,7 @@ const Home = () => {
                     <a
                       href="/cv.jpg"
                       download
-                      className="inline-flex items-center gap-2 rounded-full bg-indigo-500 px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-indigo-500/20 hover:bg-indigo-600 active:scale-[0.98] transition"
+                      className="btn-primary"
                     >
                       <Download size={16} />
                       Download CV
@@ -140,14 +139,14 @@ const Home = () => {
 
                     <a
                       href="/contact"
-                      className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white hover:bg-white/10 active:scale-[0.98] transition"
+                      className="btn-secondary"
                     >
                       Talk with Me
                     </a>
 
                     <a
                       href="https://github.com/boburov"
-                      className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white hover:bg-white/10 transition"
+                      className="btn-secondary"
                     >
                       <Github size={16} />
                       GitHub
@@ -191,7 +190,7 @@ const Home = () => {
                 <p className="text-xs uppercase tracking-widest text-white/60 mb-3">
                   Stack
                 </p>
-                <div className="grid grid-cols-7 sm:grid-cols-9 md:grid-cols-11 gap-2">
+                <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-13 gap-2">
                   {skills.map((skill, index) => (
                     <div
                       key={index}
@@ -266,20 +265,7 @@ const Home = () => {
                   <span className="font-medium">+998 20 002-04-46</span>
                 </li>
               </ul><button
-                className="
-    w-full mt-6 py-3
-    rounded-full
-    bg-gradient-to-r from-purple-600/90 to-violet-600/90
-    text-sm font-semibold text-white
-    shadow-lg shadow-purple-500/30
-    border border-white/10
-    transition-all duration-300
-    hover:from-purple-500 hover:to-violet-500
-    hover:shadow-purple-500/50
-    hover:scale-[1.02]
-    active:scale-[0.98]
-    focus:outline-none focus:ring-2 focus:ring-purple-500/50
-  "
+                className="w-full mt-6 btn-primary justify-center"
               >
                 Connect
               </button>
