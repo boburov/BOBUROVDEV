@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 
 const skills = [
   { name: "HTML", icon: "html" },
@@ -109,10 +110,13 @@ const Skills = () => {
 
 const SkillItem = ({ skill }: { skill: { name: string; icon: string } }) => (
   <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:border-purple-500/50 transition-all cursor-crosshair min-w-[180px]">
-    <img
+    <Image
       src={`https://skillicons.dev/icons?i=${skill.icon}`}
       alt={skill.name}
+      width={32}
+      height={32}
       className="w-8 h-8"
+      unoptimized
     />
     <span className="text-lg font-bold text-gray-200">{skill.name}</span>
   </div>

@@ -2,7 +2,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { MessageCircle, Clock, Share2 } from "lucide-react";
-import Header from "../components/Header";
+import Image from "next/image";
+
 
 type UIMessage = {
   id: number;
@@ -138,11 +139,15 @@ export default function BlogPage() {
             >
               {/* Media */}
               {msg.imageUrl && (
-                <img
-                  src={msg.imageUrl}
-                  alt="telegram attachment"
-                  className="rounded-xl mb-4 w-full max-h-[400px] object-cover"
-                />
+                <div className="relative w-full h-[400px] mb-4">
+                  <Image
+                    src={msg.imageUrl}
+                    alt="telegram attachment"
+                    fill
+                    className="rounded-xl object-cover"
+                    unoptimized
+                  />
+                </div>
               )}
 
               {/* Text */}

@@ -93,13 +93,14 @@ const Home = () => {
                   {/* glow */}
                   <div className="absolute -inset-3 rounded-[2.5rem] bg-gradient-to-br from-indigo-500/30 via-purple-500/20 to-cyan-500/20 blur-2xl" />
                   <div className="relative w-36 h-36 sm:w-44 sm:h-44 rounded-[2rem] overflow-hidden ring-2 ring-white/10 bg-gradient-to-br from-white/10 to-white/5">
-                    <img
+                    <Image
                       src="https://avatars.githubusercontent.com/u/137058543?v=4"
                       alt="Boburov Shukurullo"
-                      // fill
+                      fill
                       sizes="(max-width: 768px) 160px, 180px"
                       className="object-cover"
-                    // priority
+                      priority
+                      unoptimized
                     />
                   </div>
                   {/* online dot */}
@@ -197,10 +198,13 @@ const Home = () => {
                       className="group rounded-xl border border-white/10 bg-white/5 p-2 hover:bg-white/10 transition"
                       title={skill.name}
                     >
-                      <img
+                      <Image
                         src={`https://skillicons.dev/icons?i=${skill.icon}`}
                         alt={skill.name}
+                        width={28}
+                        height={28}
                         className="h-7 w-7 mx-auto"
+                        unoptimized
                       />
                     </div>
                   ))}
@@ -328,15 +332,21 @@ const Home = () => {
           <div className="w-[30%] hidden md:flex flex-col gap-4">
             <div className="w-full bg-gradient-to-b from-[#7832ff26] to-[#5014c81a] rounded-2xl p-5 shadow-xl border border-[#7832ff26] flex items-center gap-4">
               Languages |
-              <img
+              <Image
                 src="https://flagcdn.com/w40/uz.png"
                 alt="Oʻzbekcha"
+                width={24}
+                height={16}
                 className="w-6 h-4 rounded-sm shadow-sm"
+                unoptimized
               />
-              <img
+              <Image
                 src="https://flagcdn.com/w40/gb.png"
                 alt="English"
+                width={24}
+                height={16}
                 className="w-6 h-4 rounded-sm shadow-sm"
+                unoptimized
               />
             </div>
 

@@ -113,10 +113,13 @@ const Projects = () => {
               className="shrink-0 rounded-2xl border border-white/10 bg-white/5 p-2 hover:bg-white/10 transition"
               title={skill.name}
             >
-              <img
+              <Image
                 src={`https://skillicons.dev/icons?i=${skill.icon}`}
                 alt={skill.name}
+                width={40}
+                height={40}
                 className="w-10 h-10"
+                unoptimized
               />
             </div>
           ))}

@@ -11,7 +11,7 @@ export default function Footer() {
       <div className="container">
         <div className="flex flex-col gap-12 mb-20">
              <h2 className="text-maximal leading-none text-white uppercase break-all">
-                Let's <span className="text-gray-800">build</span>
+                Let&apos;s <span className="text-gray-800">build</span>
                 <br />
                 <span className="text-gradient">Something.</span>
              </h2>
