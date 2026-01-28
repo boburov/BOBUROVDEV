@@ -191,7 +191,7 @@ const Home = () => {
                 <p className="text-xs uppercase tracking-widest text-white/60 mb-3">
                   Stack
                 </p>
-                <div className="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-13 gap-2">
+                <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-13 gap-2">
                   {skills.map((skill, index) => (
                     <div
                       key={index}

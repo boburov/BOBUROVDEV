@@ -14,7 +14,7 @@ export const loyihalar = [
     netlify: "https://sevenedu.org",
   },
     {
-    id: 2,
+    id: 1,
     img: primeprint,
     projectName: "primeprint",
     description:
